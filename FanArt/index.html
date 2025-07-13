@@ -96,7 +96,27 @@
             max-width: 1100px;
             z-index: 10;
         }
-
+        @media (max-width: 1200px) {
+            .fanart-showcase {
+                grid-template-columns: repeat(3, 1fr);
+            }
+        }
+        @media (max-width: 800px) {
+            .fanart-showcase {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+        @media (max-width: 600px) {
+            .fanart-showcase {
+                gap: 8px;
+                grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+                width: 100vw;
+                margin: 0 auto 24px auto;
+                box-sizing: border-box;
+                padding-left: 0;
+                padding-right: 0;
+            }
+        }
         .fanart-item {
             display: flex;
             flex-direction: column;
@@ -189,29 +209,6 @@
             z-index: 1001;
             text-shadow: 0 2px 8px #000, 0 0 2px #a020f0;
         }
-
-        @media (max-width: 1200px) {
-            .fanart-showcase {
-                grid-template-columns: repeat(3, 1fr);
-            }
-        }
-        @media (max-width: 800px) {
-            .fanart-showcase {
-                grid-template-columns: repeat(2, 1fr);
-            }
-        }
-        @media (max-width: 600px) {
-            .fanart-showcase {
-                gap: 8px;
-                grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
-                width: 100vw;
-                margin: 0 auto 24px auto;
-                box-sizing: border-box;
-                padding-left: 0;
-                padding-right: 0;
-                justify-items: center;
-            }
-        }
     </style>
 </head>
 <body>
@@ -227,36 +224,40 @@
     </div>
 
     <div class="fanart-showcase">
-        <div class="fanart-showcase">
         <div class="fanart-item" data-img="fanart/fanart1.webp" data-caption="Art by Jhin gay">
             <img src="fanart/fanart1.webp" alt="Fan Art 1">
             <div class="fanart-caption">Art by Jhin gay</div>
         </div>
+
         <div class="fanart-item" data-img="fanart/fanart2.png" data-caption="Art by Amora">
             <img src="fanart/fanart2.png" alt="Fan Art 2">
             <div class="fanart-caption">Art by Amora</div>
         </div>
+
         <div class="fanart-item" data-img="fanart/fanart3.jpg" data-caption="Art by Luna-cat">
             <img src="fanart/fanart3.jpg" alt="Fan Art 3">
             <div class="fanart-caption">Art by Luna-cat</div>
         </div>
+
         <div class="fanart-item" data-img="fanart/fanart4.webp" data-caption="Art by Jhin">
             <img src="fanart/fanart4.webp" alt="Fan Art 4">
             <div class="fanart-caption">Art by Jhin</div>
         </div>
+
         <div class="fanart-item" data-img="fanart/fanart5.png" data-caption="Art by Mira">
             <img src="fanart/fanart5.png" alt="Fan Art 5">
             <div class="fanart-caption">Art by Mira</div>
         </div>
+
         <div class="fanart-item" data-img="fanart/fanart6.png" data-caption="Art by Mira">
             <img src="fanart/fanart6.png" alt="Fan Art 6">
             <div class="fanart-caption">Art by Mira</div>
         </div>
+        
         <div class="fanart-item" data-img="fanart/fanart7.png" data-caption="Art by Mira">
             <img src="fanart/fanart7.png" alt="Fan Art 7">
             <div class="fanart-caption">Art by Mira</div>
         </div>
-
     </div>
         
     </div>
