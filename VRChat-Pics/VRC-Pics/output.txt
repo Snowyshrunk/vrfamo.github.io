@@ -1,0 +1,15 @@
+<div class="photo-item" data-img="VRC-Pics/VRChat_2025-05-10_21-21-24.555_1920x1080.png" data-caption="Taken by user">
+    <img src="VRC-Pics/VRChat_2025-05-10_21-21-24.555_1920x1080.png" alt="VRChat Photo VRChat_2025-05-10_21-21-24.555_1920x1080">
+    <div class="photo-caption">Taken by user</div>
+</div>
+
+<div class="photo-item" data-img="VRC-Pics/VRChat_2025-05-10_21-22-28.920_1920x1080.png" data-caption="Taken by user">
+    <img src="VRC-Pics/VRChat_2025-05-10_21-22-28.920_1920x1080.png" alt="VRChat Photo VRChat_2025-05-10_21-22-28.920_1920x1080">
+    <div class="photo-caption">Taken by user</div>
+</div>
+
+<div class="photo-item" data-img="VRC-Pics/VRChat_2025-05-10_21-35-12.490_1920x1080.png" data-caption="Taken by user">
+    <img src="VRC-Pics/VRChat_2025-05-10_21-35-12.490_1920x1080.png" alt="VRChat Photo VRChat_2025-05-10_21-35-12.490_1920x1080">
+    <div class="photo-caption">Taken by user</div>
+</div>
+

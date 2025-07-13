@@ -1,0 +1,395 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>VR-Famo</title>
+    <link href="https://fonts.googleapis.com/css2?family=Droid+Sans+Mono&display=swap" rel="stylesheet">
+    <style>
+        body {
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+            margin: 0;
+            font-family: 'Droid Sans Mono', monospace;
+            background: linear-gradient(to bottom right, #6a0dad, #9b30b0);
+            color: #e0e0e0;
+            animation: fadeIn 1s ease-out;
+            position: relative;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        #nav {
+            text-align: center;
+            padding: 20px 0;
+            background-color: #000000;
+            border-bottom: 2px solid #444;
+            z-index: 10;
+            position: relative;
+        }
+
+        #nav img {
+            height: 200px;
+            width: auto;
+            margin-bottom: 10px;
+            animation: fadeIn 1.5s ease;
+        }
+
+        #nav p {
+            font-size: 120%;
+            color: #aaa;
+            margin: 5px 0;
+        }
+
+        #nav h1 {
+            font-size: 3rem;
+            background: linear-gradient(90deg, #a8c0ff, #6a0dad);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            animation: textGlow 3s ease-in-out infinite;
+        }
+
+        @keyframes textGlow {
+            0%, 100% { text-shadow: 0 0 5px #a8c0ff, 0 0 10px #6a0dad; }
+            50% { text-shadow: 0 0 15px #a8c0ff, 0 0 30px #6a0dad; }
+        }
+
+        .main {
+            max-width: 900px;
+            margin: 40px auto;
+            padding: 0 20px;
+            animation: fadeIn 1.3s ease-out;
+            z-index: 10;
+            text-align: center
+        }
+
+        .main h1 {
+            text-decoration: underline;
+            margin-bottom: 15px;
+            z-index: 10;
+        }
+
+        .main p {
+            font-size: 18px;
+            line-height: 1.6;
+            z-index: 10;
+        }
+
+        #particlesCanvas {
+            pointer-events: none;
+            position: absolute;
+            top: 0;
+            left: 0;
+            z-index: 0;
+        }
+
+        .fanart-showcase {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+            gap: 28px;
+            justify-items: center;
+            align-items: start;
+            margin: 40px auto 60px auto;
+            max-width: 1100px;
+            z-index: 10;
+        }
+
+        .fanart-item {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            background: #222;
+            border-radius: 16px;
+            box-shadow: 0 4px 24px rgba(106, 13, 173, 0.25), 0 1.5px 8px #a020f0;
+            overflow: hidden;
+            max-width: 180px;
+            width: 100%;
+            cursor: pointer;
+            transition: box-shadow 0.2s;
+        }
+
+        .fanart-item:hover {
+            box-shadow: 0 8px 32px #a020f0, 0 2px 12px #d580ff;
+        }
+
+        .fanart-item img {
+            width: 100%;
+            max-width: 180px;
+            max-height: 140px;
+            object-fit: cover;
+            display: block;
+            background: #222;
+            transition: transform 0.2s;
+        }
+
+        .fanart-caption {
+            width: 100%;
+            background: rgba(30, 0, 50, 0.85);
+            color: #fff;
+            font-weight: bold;
+            font-size: 1rem;
+            text-align: center;
+            padding: 10px 6px 8px 6px;
+            letter-spacing: 0.5px;
+            text-shadow: 0 2px 8px #000, 0 0 2px #a020f0;
+            box-sizing: border-box;
+            border-top: 1px solid #a020f0;
+            user-select: text;
+        }
+
+        .fanart-modal {
+            display: none;
+            position: fixed;
+            z-index: 1000;
+            left: 0; top: 0;
+            width: 100vw; height: 100vh;
+            background: rgba(30,0,50,0.92);
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+        }
+
+        .fanart-modal.active {
+            display: flex;
+        }
+
+        .fanart-modal-img {
+            max-width: 90vw;
+            max-height: 80vh;
+            border-radius: 18px;
+            box-shadow: 0 8px 32px #a020f0, 0 2px 12px #d580ff;
+            background: #222;
+        }
+
+        .fanart-modal-caption {
+            margin-top: 18px;
+            color: #fff;
+            font-size: 1.2rem;
+            font-weight: bold;
+            text-align: center;
+            text-shadow: 0 2px 8px #000, 0 0 2px #a020f0;
+            background: rgba(30,0,50,0.85);
+            padding: 10px 20px;
+            border-radius: 10px;
+            border: 1px solid #a020f0;
+        }
+
+        .fanart-modal-close {
+            position: absolute;
+            top: 24px;
+            right: 36px;
+            font-size: 2.5rem;
+            color: #fff;
+            cursor: pointer;
+            background: none;
+            border: none;
+            z-index: 1001;
+            text-shadow: 0 2px 8px #000, 0 0 2px #a020f0;
+        }
+
+        @media (max-width: 600px) {
+            .fanart-showcase {
+                gap: 12px;
+                grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+            }
+            .fanart-item {
+                max-width: 98vw;
+            }
+            .fanart-item img {
+                max-width: 98vw;
+                max-height: 80px;
+            }
+            .fanart-caption {
+                font-size: 0.98rem;
+                padding: 8px 2px 7px 2px;
+            }
+            .fanart-modal-img {
+                max-width: 98vw;
+                max-height: 60vh;
+            }
+            .fanart-modal-caption {
+                font-size: 1rem;
+                padding: 8px 8px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <canvas id="particlesCanvas"></canvas>
+
+    <div id="nav">
+        <img src="logo.jpg" alt="VRFamo Logo">
+    </div>
+
+    <div class="main">
+        <h1>Fan Art</h1>
+        <p> Welcome to the VR-Famo Fan Art showcase! Here you can find some of the amazing fan art created by our community members. <br>If you have fan art you'd like to share, please contact us through our Discord server</p>
+    </div>
+
+    <div class="fanart-showcase">
+        <div class="fanart-showcase">
+        <div class="fanart-item" data-img="fanart/fanart1.webp" data-caption="Art by Jhin gay">
+            <img src="fanart/fanart1.webp" alt="Fan Art 1">
+            <div class="fanart-caption">Art by Jhin gay</div>
+        </div>
+        <div class="fanart-item" data-img="fanart/fanart2.png" data-caption="Art by Amora">
+            <img src="fanart/fanart2.png" alt="Fan Art 2">
+            <div class="fanart-caption">Art by Amora</div>
+        </div>
+        <div class="fanart-item" data-img="fanart/fanart3.jpg" data-caption="Art by Luna-cat">
+            <img src="fanart/fanart3.jpg" alt="Fan Art 3">
+            <div class="fanart-caption">Art by Luna-cat</div>
+        </div>
+        <div class="fanart-item" data-img="fanart/fanart4.webp" data-caption="Art by Jhin">
+            <img src="fanart/fanart4.webp" alt="Fan Art 4">
+            <div class="fanart-caption">Art by Jhin</div>
+        </div>
+        <div class="fanart-item" data-img="fanart/fanart5.ng" data-caption="Art by Mira">
+            <img src="fanart/fanart5.png" alt="Fan Art 5">
+            <div class="fanart-caption">Art by Mira</div>
+        </div>
+        <div class="fanart-item" data-img="fanart/fanart6.ng" data-caption="Art by Mira">
+            <img src="fanart/fanart6.png" alt="Fan Art 6">
+            <div class="fanart-caption">Art by Mira</div>
+        </div>
+        <div class="fanart-item" data-img="fanart/fanart7.png" data-caption="Art by Mira">
+            <img src="fanart/fanart7.png" alt="Fan Art 7">
+            <div class="fanart-caption">Art by Mira</div>
+        </div>
+
+    </div>
+        
+    </div>
+
+    <div class="fanart-modal" id="fanartModal">
+        <button class="fanart-modal-close" id="fanartModalClose" aria-label="Close">&times;</button>
+        <img class="fanart-modal-img" id="fanartModalImg" src="" alt="Fan Art Large">
+        <div class="fanart-modal-caption" id="fanartModalCaption"></div>
+    </div>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            const canvas = document.getElementById("particlesCanvas");
+            const ctx = canvas.getContext("2d");
+
+            canvas.width = window.innerWidth;
+            canvas.height = window.innerHeight;
+
+            let particles = [];
+
+            class Particle {
+                constructor(x, y) {
+                    this.x = x;
+                    this.y = y;
+                    this.size = Math.random() * 3 + 1;
+                    this.speedX = Math.random() * 3 - 1.5;
+                    this.speedY = Math.random() * 3 - 1.5;
+                    this.color = "rgba(156, 79, 185, 0.8)";
+                }
+
+                update() {
+                    this.x += this.speedX;
+                    this.y += this.speedY;
+                    if (this.x > canvas.width) this.x = 0;
+                    if (this.x < 0) this.x = canvas.width;
+                    if (this.y > canvas.height) this.y = 0;
+                    if (this.y < 0) this.y = canvas.height;
+                }
+
+                draw() {
+                    ctx.fillStyle = this.color;
+                    ctx.beginPath();
+                    ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
+                    ctx.fill();
+                }
+            }
+
+            function createParticles(num) {
+                for (let i = 0; i < num; i++) {
+                    const x = Math.random() * canvas.width;
+                    const y = Math.random() * canvas.height;
+                    particles.push(new Particle(x, y));
+                }
+            }
+
+            function animateParticles() {
+                ctx.clearRect(0, 0, canvas.width, canvas.height);
+                for (let i = 0; i < particles.length; i++) {
+                    particles[i].update();
+                    particles[i].draw();
+                }
+                requestAnimationFrame(animateParticles);
+            }
+
+            createParticles(100);
+            animateParticles();
+
+            window.addEventListener("resize", function () {
+                canvas.width = window.innerWidth;
+                canvas.height = window.innerHeight;
+            });
+            const events = document.querySelectorAll('.event');
+
+            events.forEach(event => {
+                const startTime = event.getAttribute('data-start');
+                const endTime = event.getAttribute('data-end');
+                const sourceTZ = event.getAttribute('data-timezone');
+
+                if (!startTime || !endTime || !sourceTZ) return;
+
+                const userTZ = Intl.DateTimeFormat().resolvedOptions().timeZone;
+
+                const dateStr = new Date().toISOString().split('T')[0];
+
+                const start = new Date(`${dateStr}T${startTime}:00`);
+                const end = new Date(`${dateStr}T${endTime}:00`);
+
+                const startLocal = new Intl.DateTimeFormat('en-US', {
+                    hour: '2-digit',
+                    minute: '2-digit',
+                    hour12: true,
+                    timeZone: userTZ
+                }).format(new Date(start.toLocaleString('en-US', { timeZone: sourceTZ })));
+
+                const endLocal = new Intl.DateTimeFormat('en-US', {
+                    hour: '2-digit',
+                    minute: '2-digit',
+                    hour12: true,
+                    timeZone: userTZ
+                }).format(new Date(end.toLocaleString('en-US', { timeZone: sourceTZ })));
+
+                event.innerHTML = `Stream:<br>${startLocal} - ${endLocal}`;
+            });
+            const modal = document.getElementById('fanartModal');
+            const modalImg = document.getElementById('fanartModalImg');
+            const modalCaption = document.getElementById('fanartModalCaption');
+            const modalClose = document.getElementById('fanartModalClose');
+
+            document.querySelectorAll('.fanart-item').forEach(item => {
+                item.addEventListener('click', function () {
+                    modalImg.src = item.getAttribute('data-img');
+                    modalCaption.textContent = item.getAttribute('data-caption');
+                    modal.classList.add('active');
+                });
+            });
+
+            modalClose.addEventListener('click', function () {
+                modal.classList.remove('active');
+                modalImg.src = '';
+                modalCaption.textContent = '';
+            });
+
+            modal.addEventListener('click', function (e) {
+                if (e.target === modal) {
+                    modal.classList.remove('active');
+                    modalImg.src = '';
+                    modalCaption.textContent = '';
+                }
+            });
+        });
+    </script>
+</body>
+</html>
