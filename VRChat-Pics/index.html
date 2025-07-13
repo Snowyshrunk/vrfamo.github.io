@@ -88,13 +88,54 @@
 
         .photo-showcase {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+            grid-template-columns: repeat(5, 1fr); /* Limit to 5 per row */
             gap: 28px;
             justify-items: center;
             align-items: start;
             margin: 40px auto 60px auto;
             max-width: 1100px;
             z-index: 10;
+        }
+
+        @media (max-width: 1200px) {
+            .photo-showcase {
+                grid-template-columns: repeat(3, 1fr); /* 3 per row on medium screens */
+            }
+        }
+        @media (max-width: 800px) {
+            .photo-showcase {
+                grid-template-columns: repeat(2, 1fr); /* 2 per row on small tablets */
+            }
+        }
+        @media (max-width: 600px) {
+            .photo-showcase {
+                gap: 8px;
+                grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+                width: 100vw;
+                padding-left: 12vw;
+                padding-right: 12vw;
+                margin: 0 auto 24px auto;
+                box-sizing: border-box;
+            }
+            .photo-item {
+                max-width: 100%;
+            }
+            .photo-item img {
+                max-width: 100vw;
+                max-height: 80px;
+            }
+            .photo-caption {
+                font-size: 0.98rem;
+                padding: 8px 2px 7px 2px;
+            }
+            .photo-modal-img {
+                max-width: 98vw;
+                max-height: 60vh;
+            }
+            .photo-modal-caption {
+                font-size: 1rem;
+                padding: 8px 8px;
+            }
         }
 
         .photo-item {
@@ -188,37 +229,6 @@
             border: none;
             z-index: 1001;
             text-shadow: 0 2px 8px #000, 0 0 2px #a020f0;
-        }
-
-        @media (max-width: 600px) {
-            .photo-showcase {
-                gap: 8px;
-                grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
-                width: 100vw;
-                padding-left: 12vw;
-                padding-right: 12vw;
-                margin: 0 auto 24px auto;
-                box-sizing: border-box;
-            }
-            .photo-item {
-                max-width: 100%;
-            }
-            .photo-item img {
-                max-width: 100vw;
-                max-height: 80px;
-            }
-            .photo-caption {
-                font-size: 0.98rem;
-                padding: 8px 2px 7px 2px;
-            }
-            .photo-modal-img {
-                max-width: 98vw;
-                max-height: 60vh;
-            }
-            .photo-modal-caption {
-                font-size: 1rem;
-                padding: 8px 8px;
-            }
         }
     </style>
 </head>
