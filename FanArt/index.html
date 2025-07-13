@@ -253,7 +253,7 @@
             <img src="fanart/fanart6.png" alt="Fan Art 6">
             <div class="fanart-caption">Art by Mira</div>
         </div>
-        
+
         <div class="fanart-item" data-img="fanart/fanart7.png" data-caption="Art by Mira">
             <img src="fanart/fanart7.png" alt="Fan Art 7">
             <div class="fanart-caption">Art by Mira</div>
@@ -329,44 +329,14 @@
                 canvas.width = window.innerWidth;
                 canvas.height = window.innerHeight;
             });
-            const events = document.querySelectorAll('.event');
 
-            events.forEach(event => {
-                const startTime = event.getAttribute('data-start');
-                const endTime = event.getAttribute('data-end');
-                const sourceTZ = event.getAttribute('data-timezone');
+            // Modal logic for photos
+            const modal = document.getElementById('photoModal');
+            const modalImg = document.getElementById('photoModalImg');
+            const modalCaption = document.getElementById('photoModalCaption');
+            const modalClose = document.getElementById('photoModalClose');
 
-                if (!startTime || !endTime || !sourceTZ) return;
-
-                const userTZ = Intl.DateTimeFormat().resolvedOptions().timeZone;
-
-                const dateStr = new Date().toISOString().split('T')[0];
-
-                const start = new Date(`${dateStr}T${startTime}:00`);
-                const end = new Date(`${dateStr}T${endTime}:00`);
-
-                const startLocal = new Intl.DateTimeFormat('en-US', {
-                    hour: '2-digit',
-                    minute: '2-digit',
-                    hour12: true,
-                    timeZone: userTZ
-                }).format(new Date(start.toLocaleString('en-US', { timeZone: sourceTZ })));
-
-                const endLocal = new Intl.DateTimeFormat('en-US', {
-                    hour: '2-digit',
-                    minute: '2-digit',
-                    hour12: true,
-                    timeZone: userTZ
-                }).format(new Date(end.toLocaleString('en-US', { timeZone: sourceTZ })));
-
-                event.innerHTML = `Stream:<br>${startLocal} - ${endLocal}`;
-            });
-            const modal = document.getElementById('fanartModal');
-            const modalImg = document.getElementById('fanartModalImg');
-            const modalCaption = document.getElementById('fanartModalCaption');
-            const modalClose = document.getElementById('fanartModalClose');
-
-            document.querySelectorAll('.fanart-item').forEach(item => {
+            document.querySelectorAll('.photo-item').forEach(item => {
                 item.addEventListener('click', function () {
                     modalImg.src = item.getAttribute('data-img');
                     modalCaption.textContent = item.getAttribute('data-caption');
