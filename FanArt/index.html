@@ -176,7 +176,17 @@
             display: flex;
         }
 
+        .fanart-modal-img-wrap {
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: fit-content;
+            margin: 0 auto;
+        }
+
         .fanart-modal-img {
+            display: block;
             max-width: 90vw;
             max-height: 80vh;
             border-radius: 18px;
@@ -208,6 +218,45 @@
             border: none;
             z-index: 1001;
             text-shadow: 0 2px 8px #000, 0 0 2px #a020f0;
+        }
+
+        .fanart-modal-prev,
+        .fanart-modal-next {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            font-size: 2.5rem;
+            color: #fff;
+            background: rgba(30,0,50,0.7);
+            border: none;
+            border-radius: 50%;
+            width: 44px;
+            height: 44px;
+            cursor: pointer;
+            z-index: 1002;
+            text-shadow: 0 2px 8px #000, 0 0 2px #a020f0;
+            transition: background 0.2s;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 0;
+        }
+
+        .fanart-modal-prev { left: -28px; }
+        .fanart-modal-next { right: -28px; }
+        .fanart-modal-prev:hover,
+        .fanart-modal-next:hover { background: #a020f0; }
+
+        @media (max-width: 600px) {
+            .fanart-modal-prev, .fanart-modal-next {
+                width: 36px;
+                height: 36px;
+                font-size: 2rem;
+                left: -20px;
+                right: -20px;
+            }
+            .fanart-modal-prev { left: -20px; }
+            .fanart-modal-next { right: -20px; }
         }
     </style>
 </head>
@@ -264,7 +313,11 @@
 
     <div class="fanart-modal" id="fanartModal">
         <button class="fanart-modal-close" id="fanartModalClose" aria-label="Close">&times;</button>
-        <img class="fanart-modal-img" id="fanartModalImg" src="" alt="Fan Art Large">
+        <div class="fanart-modal-img-wrap">
+            <button class="fanart-modal-prev" id="fanartModalPrev" aria-label="Previous">&lt;</button>
+            <img class="fanart-modal-img" id="fanartModalImg" src="" alt="Fan Art Large">
+            <button class="fanart-modal-next" id="fanartModalNext" aria-label="Next">&gt;</button>
+        </div>
         <div class="fanart-modal-caption" id="fanartModalCaption"></div>
     </div>
 
@@ -330,17 +383,29 @@
                 canvas.height = window.innerHeight;
             });
 
-            // Modal logic for photos
-            const modal = document.getElementById('photoModal');
-            const modalImg = document.getElementById('photoModalImg');
-            const modalCaption = document.getElementById('photoModalCaption');
-            const modalClose = document.getElementById('photoModalClose');
+            // Modal logic for fanart
+            const modal = document.getElementById('fanartModal');
+            const modalImg = document.getElementById('fanartModalImg');
+            const modalCaption = document.getElementById('fanartModalCaption');
+            const modalClose = document.getElementById('fanartModalClose');
+            const modalPrev = document.getElementById('fanartModalPrev');
+            const modalNext = document.getElementById('fanartModalNext');
 
-            document.querySelectorAll('.photo-item').forEach(item => {
+            const items = Array.from(document.querySelectorAll('.fanart-item'));
+            let currentIndex = -1;
+
+            function showModal(index) {
+                if (index < 0 || index >= items.length) return;
+                const item = items[index];
+                modalImg.src = item.getAttribute('data-img');
+                modalCaption.textContent = item.getAttribute('data-caption');
+                modal.classList.add('active');
+                currentIndex = index;
+            }
+
+            items.forEach((item, idx) => {
                 item.addEventListener('click', function () {
-                    modalImg.src = item.getAttribute('data-img');
-                    modalCaption.textContent = item.getAttribute('data-caption');
-                    modal.classList.add('active');
+                    showModal(idx);
                 });
             });
 
@@ -348,6 +413,21 @@
                 modal.classList.remove('active');
                 modalImg.src = '';
                 modalCaption.textContent = '';
+                currentIndex = -1;
+            });
+
+            modalPrev.addEventListener('click', function (e) {
+                e.stopPropagation();
+                if (currentIndex > 0) {
+                    showModal(currentIndex - 1);
+                }
+            });
+
+            modalNext.addEventListener('click', function (e) {
+                e.stopPropagation();
+                if (currentIndex < items.length - 1) {
+                    showModal(currentIndex + 1);
+                }
             });
 
             modal.addEventListener('click', function (e) {
@@ -355,6 +435,22 @@
                     modal.classList.remove('active');
                     modalImg.src = '';
                     modalCaption.textContent = '';
+                    currentIndex = -1;
+                }
+            });
+
+            // Optional: Keyboard navigation
+            document.addEventListener('keydown', function (e) {
+                if (!modal.classList.contains('active')) return;
+                if (e.key === "ArrowLeft") {
+                    if (currentIndex > 0) showModal(currentIndex - 1);
+                } else if (e.key === "ArrowRight") {
+                    if (currentIndex < items.length - 1) showModal(currentIndex + 1);
+                } else if (e.key === "Escape") {
+                    modal.classList.remove('active');
+                    modalImg.src = '';
+                    modalCaption.textContent = '';
+                    currentIndex = -1;
                 }
             });
         });

@@ -178,7 +178,17 @@
             display: flex;
         }
 
+        .photo-modal-img-wrap {
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: fit-content;
+            margin: 0 auto;
+        }
+
         .photo-modal-img {
+            display: block;
             max-width: 90vw;
             max-height: 80vh;
             border-radius: 18px;
@@ -210,6 +220,44 @@
             border: none;
             z-index: 1001;
             text-shadow: 0 2px 8px #000, 0 0 2px #a020f0;
+        }
+
+        .photo-modal-prev,
+        .photo-modal-next {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            font-size: 2.5rem;
+            color: #fff;
+            background: rgba(30,0,50,0.7);
+            border: none;
+            border-radius: 50%;
+            width: 44px;
+            height: 44px;
+            cursor: pointer;
+            z-index: 1002;
+            text-shadow: 0 2px 8px #000, 0 0 2px #a020f0;
+            transition: background 0.2s;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 0;
+        }
+        .photo-modal-prev { left: -28px; }
+        .photo-modal-next { right: -28px; }
+        .photo-modal-prev:hover,
+        .photo-modal-next:hover { background: #a020f0; }
+
+        @media (max-width: 600px) {
+            .photo-modal-prev, .photo-modal-next {
+                width: 36px;
+                height: 36px;
+                font-size: 2rem;
+                left: -20px;
+                right: -20px;
+            }
+            .photo-modal-prev { left: -20px; }
+            .photo-modal-next { right: -20px; }
         }
     </style>
 </head>
@@ -320,7 +368,11 @@
 
     <div class="photo-modal" id="photoModal">
         <button class="photo-modal-close" id="photoModalClose" aria-label="Close">&times;</button>
-        <img class="photo-modal-img" id="photoModalImg" src="" alt="VRChat Photo Large">
+        <div class="photo-modal-img-wrap">
+            <button class="photo-modal-prev" id="photoModalPrev" aria-label="Previous">&lt;</button>
+            <img class="photo-modal-img" id="photoModalImg" src="" alt="VRChat Photo Large">
+            <button class="photo-modal-next" id="photoModalNext" aria-label="Next">&gt;</button>
+        </div>
         <div class="photo-modal-caption" id="photoModalCaption"></div>
     </div>
 
@@ -391,12 +443,24 @@
             const modalImg = document.getElementById('photoModalImg');
             const modalCaption = document.getElementById('photoModalCaption');
             const modalClose = document.getElementById('photoModalClose');
+            const modalPrev = document.getElementById('photoModalPrev');
+            const modalNext = document.getElementById('photoModalNext');
 
-            document.querySelectorAll('.photo-item').forEach(item => {
+            const items = Array.from(document.querySelectorAll('.photo-item'));
+            let currentIndex = -1;
+
+            function showModal(index) {
+                if (index < 0 || index >= items.length) return;
+                const item = items[index];
+                modalImg.src = item.getAttribute('data-img');
+                modalCaption.textContent = item.getAttribute('data-caption');
+                modal.classList.add('active');
+                currentIndex = index;
+            }
+
+            items.forEach((item, idx) => {
                 item.addEventListener('click', function () {
-                    modalImg.src = item.getAttribute('data-img');
-                    modalCaption.textContent = item.getAttribute('data-caption');
-                    modal.classList.add('active');
+                    showModal(idx);
                 });
             });
 
@@ -404,6 +468,21 @@
                 modal.classList.remove('active');
                 modalImg.src = '';
                 modalCaption.textContent = '';
+                currentIndex = -1;
+            });
+
+            modalPrev.addEventListener('click', function (e) {
+                e.stopPropagation();
+                if (currentIndex > 0) {
+                    showModal(currentIndex - 1);
+                }
+            });
+
+            modalNext.addEventListener('click', function (e) {
+                e.stopPropagation();
+                if (currentIndex < items.length - 1) {
+                    showModal(currentIndex + 1);
+                }
             });
 
             modal.addEventListener('click', function (e) {
@@ -411,6 +490,22 @@
                     modal.classList.remove('active');
                     modalImg.src = '';
                     modalCaption.textContent = '';
+                    currentIndex = -1;
+                }
+            });
+
+            // Optional: Keyboard navigation
+            document.addEventListener('keydown', function (e) {
+                if (!modal.classList.contains('active')) return;
+                if (e.key === "ArrowLeft") {
+                    if (currentIndex > 0) showModal(currentIndex - 1);
+                } else if (e.key === "ArrowRight") {
+                    if (currentIndex < items.length - 1) showModal(currentIndex + 1);
+                } else if (e.key === "Escape") {
+                    modal.classList.remove('active');
+                    modalImg.src = '';
+                    modalCaption.textContent = '';
+                    currentIndex = -1;
                 }
             });
         });
