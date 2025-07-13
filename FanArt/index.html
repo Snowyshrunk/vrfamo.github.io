@@ -192,14 +192,18 @@
 
         @media (max-width: 600px) {
             .fanart-showcase {
-                gap: 12px;
+                gap: 8px;
                 grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+                width: 100vw;
+                margin: 0 auto 24px auto;
+                padding: 0 2vw;
+                box-sizing: border-box;
             }
             .fanart-item {
-                max-width: 98vw;
+                max-width: 100%;
             }
             .fanart-item img {
-                max-width: 98vw;
+                max-width: 100vw;
                 max-height: 80px;
             }
             .fanart-caption {
