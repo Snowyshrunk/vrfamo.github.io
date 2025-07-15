@@ -143,13 +143,14 @@
             box-shadow: 0 0 6px #a020f0;
             color: #e0d6ff;
         }
-
         .links {
             text-align: center;
-            z-index: 5;
             position: relative;
+            z-index: 5;
+            margin-top: -40px;
             margin-bottom: 60px;
         }
+
         .links h1 {
             margin-bottom: 20px;
             text-decoration: underline;
@@ -181,6 +182,58 @@
             left: 0;
             z-index: 0;
         }
+
+        .links2 {
+            text-align: center;
+            margin-bottom: 60px;
+            z-index: 5;
+        }
+        .gallery-title {
+            font-size: 1.8rem;
+            color: #fff;
+            margin-bottom: 10px;
+            text-shadow: 0 0 10px #ff00f7;
+            z-index: 5;
+            text-align: center;
+            text-decoration: underline;
+        }
+
+
+        @keyframes pulseGlow {
+            0%, 100% {
+                box-shadow: 0 0 12px rgba(255, 0, 204, 0.6), 0 0 20px rgba(51, 51, 255, 0.5);
+            }
+            50% {
+                box-shadow: 0 0 20px rgba(255, 0, 204, 1), 0 0 35px rgba(51, 51, 255, 0.9);
+            }
+        }
+
+        
+        .neon-button {
+            display: inline-block;
+            margin: 15px 20px;
+            padding: 14px 32px;
+            font-size: 18px;
+            font-weight: bold;
+            color: #111;
+            background: #00ffe7;
+            border: 2px solid #fff;
+            border-radius: 12px;
+            text-decoration: none;
+            box-shadow: 0 0 8px #00ffe7, 0 0 20px #00ffe7;
+            transition: all 0.3s ease;
+            z-index: 5;
+        }
+
+        .neon-button:hover {
+            background: #ffcc00;
+            color: #000;
+            border-color: #fff;
+            box-shadow: 0 0 10px #ffcc00, 0 0 25px #ffcc00;
+            transform: scale(1.05);
+            z-index: 5;
+        }
+
     </style>
 </head>
 <body>
@@ -189,19 +242,27 @@
     <div id="nav">
         <img src="logo.jpg" alt="VRFamo Logo">
     </div>
-
+    
     <div class="main">
         <h1>VRFamo</h1>
         <p>This is just a small website for our links and schedule<br>(Our schedule may change)</p>
     </div>
+    
+    <div class="links2">
+        <h1 class="gallery-title">Gallery</h1>
+        <a href="https://vrfamo.com/FanArt" class="neon-button" target="_blank" rel="noopener noreferrer">🎨 FanArt</a>
+        <a href="https://vrfamo.com/VRChat-Pics/" class="neon-button" target="_blank" rel="noopener noreferrer">📸 VRChat Pics</a>
+    </div>
     <div class="links">
-    <h1>Links</h1>
+        <h1>Links</h1>
         <a href="https://www.tiktok.com/@vr.famo/" target="_blank" rel="noopener noreferrer">TikTok</a>
         <a href="https://vrc.group/VRFAMO.0864" target="_blank" rel="noopener noreferrer">VRChat Group</a>
         <a href="https://discord.gg/dKEu6t8THe" target="_blank" rel="noopener noreferrer">Discord</a>
-        <a href="https://vrfamo.com/FanArt" target="_blank" rel="noopener noreferrer">FanArt</a>
-        <a href="https://vrfamo.com/VRChat-Pics/" target="_blank" rel="noopener noreferrer">VRChat Pics</a>
+        <a href="https://vrfamo.com/FanArt" target="_blank" rel="noopener noreferrer">Link Tree</a>
     </div>
+
+
+
 
     <div class="schedule-container">
         <div class="schedule-title">Stream Schedule</div>

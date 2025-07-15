@@ -99,12 +99,12 @@
 
         @media (max-width: 1200px) {
             .photo-showcase {
-                grid-template-columns: repeat(3, 1fr); /* 3 per row on medium screens */
+                grid-template-columns: repeat(3, 1fr);
             }
         }
         @media (max-width: 800px) {
             .photo-showcase {
-                grid-template-columns: repeat(2, 1fr); /* 2 per row on small tablets */
+                grid-template-columns: repeat(2, 1fr);
             }
         }
         @media (max-width: 600px) {
@@ -438,7 +438,7 @@
                 canvas.height = window.innerHeight;
             });
 
-            // Modal logic for photos
+            
             const modal = document.getElementById('photoModal');
             const modalImg = document.getElementById('photoModalImg');
             const modalCaption = document.getElementById('photoModalCaption');
@@ -494,7 +494,7 @@
                 }
             });
 
-            // Optional: Keyboard navigation
+            
             document.addEventListener('keydown', function (e) {
                 if (!modal.classList.contains('active')) return;
                 if (e.key === "ArrowLeft") {

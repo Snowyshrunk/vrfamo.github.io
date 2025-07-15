@@ -1,6 +1,6 @@
 import os
 
-CAPTION = "Provided by Sassy"
+CAPTION = "Provided by "
 image_extensions = (".jpg", ".jpeg", ".png", ".webp", ".gif")
 skip_files = {"output.txt", "script.py"}
 

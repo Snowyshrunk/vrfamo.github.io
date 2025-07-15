@@ -1,6 +1,6 @@
 import os
 
-CAPTION = "Art by user"  # Change as needed
+CAPTION = "Art by user"
 image_extensions = (".jpg", ".jpeg", ".png", ".webp", ".gif")
 skip_files = {"fanart_output.txt", "script.py"}
 
