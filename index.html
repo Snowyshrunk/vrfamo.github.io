@@ -47,7 +47,6 @@
         #nav h1 {
             font-size: 3rem;
             background: linear-gradient(90deg, #a8c0ff, #6a0dad);
-            -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             animation: textGlow 3s ease-in-out infinite;
         }
@@ -198,7 +197,6 @@
             text-decoration: underline;
         }
 
-
         @keyframes pulseGlow {
             0%, 100% {
                 box-shadow: 0 0 12px rgba(255, 0, 204, 0.6), 0 0 20px rgba(51, 51, 255, 0.5);
@@ -208,7 +206,6 @@
             }
         }
 
-        
         .neon-button {
             display: inline-block;
             margin: 15px 20px;
@@ -240,7 +237,9 @@
     <canvas id="particlesCanvas"></canvas>
 
     <div id="nav">
-        <img src="logo.jpg" alt="VRFamo Logo">
+        <a href="https://vrfamo.com">
+            <img src="logo.jpg" alt="VRFamo Logo">
+        </a>
     </div>
     
     <div class="main">

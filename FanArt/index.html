@@ -265,14 +265,16 @@
     <canvas id="particlesCanvas"></canvas>
 
     <div id="nav">
-        <img src="logo.jpg" alt="VRFamo Logo">
+        <a href="https://vrfamo.com">
+            <img src="logo.jpg" alt="VRFamo Logo">
+        </a>
     </div>
 
     <div class="main">
         <h1>Fan Art</h1>
         <p> Welcome to the VR-Famo Fan Art showcase! Here you can find some of the amazing fan art created by our community members. <br>If you have fan art you'd like to share, please contact us through our Discord server</p>
     </div>
-
+    <!-- note to self add more in here -->
     <div class="fanart-showcase">
         <div class="fanart-item" data-img="fanart/fanart1.webp" data-caption="Art by Jhin gay">
             <img src="fanart/fanart1.webp" alt="Fan Art 1">
@@ -310,7 +312,7 @@
         </div>
     </div>
 
-
+    <!-- note to self dont add more past here -->
     <div class="fanart-modal" id="fanartModal">
         <button class="fanart-modal-close" id="fanartModalClose" aria-label="Close">&times;</button>
         <div class="fanart-modal-img-wrap">
@@ -383,7 +385,6 @@
                 canvas.height = window.innerHeight;
             });
 
-            
             const modal = document.getElementById('fanartModal');
             const modalImg = document.getElementById('fanartModalImg');
             const modalCaption = document.getElementById('fanartModalCaption');
@@ -439,7 +440,6 @@
                 }
             });
 
-            
             document.addEventListener('keydown', function (e) {
                 if (!modal.classList.contains('active')) return;
                 if (e.key === "ArrowLeft") {

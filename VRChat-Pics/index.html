@@ -47,7 +47,6 @@
         #nav h1 {
             font-size: 3rem;
             background: linear-gradient(90deg, #a8c0ff, #6a0dad);
-            -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             animation: textGlow 3s ease-in-out infinite;
         }
@@ -265,7 +264,9 @@
     <canvas id="particlesCanvas"></canvas>
 
     <div id="nav">
-        <img src="logo.jpg" alt="VRFamo Logo">
+        <a href="https://vrfamo.com">
+            <img src="logo.jpg" alt="VRFamo Logo">
+        </a>
     </div>
 
     <div class="main">
@@ -273,7 +274,7 @@
         <p>Welcome to the VR-Famo VRChat Photo Gallery! Here you can find some of the amazing photos taken by our community members inside VRChat.<br>
         If you have photos you'd like to share, please contact us through our Discord server.</p>
     </div>
-
+    <!-- note to self add more from here -->
     <div class="photo-showcase">
         <div class="photo-item" data-img="VRC-Pics/VRChat_2025-05-10_21-21-24.555_1920x1080.png" data-caption="Taken by Snowy">
             <img src="VRC-Pics/VRChat_2025-05-10_21-21-24.555_1920x1080.png" alt="VRChat Photo VRChat_2025-05-10_21-21-24.555_1920x1080">
@@ -365,7 +366,7 @@
         </div>
     </div>
 
-
+    <!-- note to self dont't add more past here -->
     <div class="photo-modal" id="photoModal">
         <button class="photo-modal-close" id="photoModalClose" aria-label="Close">&times;</button>
         <div class="photo-modal-img-wrap">
