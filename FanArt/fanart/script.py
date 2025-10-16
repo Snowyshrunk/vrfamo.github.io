@@ -14,8 +14,8 @@ with open(output_path, "w", encoding="utf-8") as out:
             and filename not in skip_files
         ):
             name_no_ext = os.path.splitext(filename)[0]
-            html = f'''<div class="fanart-item" data-img="{filename}" data-caption="{CAPTION}">
-    <img src="{filename}" alt="Fan Art {name_no_ext}">
+            html = f'''<div class="fanart-item" data-img="fanart/{filename}" data-caption="{CAPTION}">
+    <img src="fanart/{filename}" alt="Fan Art {name_no_ext}">
     <div class="fanart-caption">{CAPTION}</div>
 </div>
 
