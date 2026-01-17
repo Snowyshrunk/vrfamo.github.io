@@ -1,0 +1,467 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Discord Bot Documentation</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #2a2a2a;
+            color: #e0e0e0;
+            line-height: 1.6;
+        }
+
+        .container {
+            display: flex;
+            min-height: 100vh;
+        }
+
+        /* Sidebar Navigation */
+        .sidebar {
+            width: 280px;
+            background-color: #1e1e1e;
+            padding: 2rem 1.5rem;
+            position: fixed;
+            height: 100vh;
+            overflow-y: auto;
+            border-right: 2px solid #8b5cf6;
+            transition: transform 0.3s ease;
+        }
+
+        .sidebar h2 {
+            color: #8b5cf6;
+            margin-bottom: 1.5rem;
+            font-size: 1.5rem;
+            border-bottom: 2px solid #8b5cf6;
+            padding-bottom: 0.5rem;
+        }
+
+        .sidebar nav ul {
+            list-style: none;
+        }
+
+        .sidebar nav ul li {
+            margin-bottom: 0.75rem;
+        }
+
+        .sidebar nav ul li a {
+            color: #b8b8b8;
+            text-decoration: none;
+            display: block;
+            padding: 0.5rem 0.75rem;
+            border-radius: 6px;
+            transition: all 0.3s ease;
+            border-left: 3px solid transparent;
+        }
+
+        .sidebar nav ul li a:hover {
+            background-color: #2a2a2a;
+            color: #8b5cf6;
+            border-left-color: #8b5cf6;
+            padding-left: 1rem;
+        }
+
+        .sidebar nav ul li a.active {
+            background-color: #2a2a2a;
+            color: #8b5cf6;
+            border-left-color: #8b5cf6;
+            font-weight: 600;
+        }
+
+        /* Mobile Menu Toggle */
+        .menu-toggle {
+            display: none;
+            position: fixed;
+            top: 1rem;
+            left: 1rem;
+            z-index: 1000;
+            background-color: #8b5cf6;
+            color: white;
+            border: none;
+            padding: 0.75rem 1rem;
+            border-radius: 6px;
+            cursor: pointer;
+            font-size: 1rem;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+        }
+
+        .menu-toggle:hover {
+            background-color: #7c3aed;
+        }
+
+        /* Main Content */
+        .main-content {
+            flex: 1;
+            margin-left: 280px;
+            padding: 3rem 2rem;
+            max-width: 900px;
+        }
+
+        .main-content h1 {
+            color: #8b5cf6;
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            border-bottom: 3px solid #8b5cf6;
+            padding-bottom: 0.5rem;
+        }
+
+        .main-content h2 {
+            color: #a78bfa;
+            font-size: 1.8rem;
+            margin-top: 2.5rem;
+            margin-bottom: 1rem;
+            padding-top: 1rem;
+        }
+
+        .main-content h3 {
+            color: #c4b5fd;
+            font-size: 1.3rem;
+            margin-top: 1.5rem;
+            margin-bottom: 0.75rem;
+        }
+
+        .main-content section {
+            margin-bottom: 3rem;
+            scroll-margin-top: 2rem;
+        }
+
+        .main-content p {
+            margin-bottom: 1rem;
+            font-size: 1.05rem;
+            color: #d0d0d0;
+        }
+
+        .main-content code {
+            background-color: #1e1e1e;
+            color: #8b5cf6;
+            padding: 0.2rem 0.5rem;
+            border-radius: 4px;
+            font-family: 'Courier New', monospace;
+        }
+
+        .main-content pre {
+            background-color: #1e1e1e;
+            padding: 1rem;
+            border-radius: 6px;
+            overflow-x: auto;
+            border-left: 4px solid #8b5cf6;
+            margin: 1rem 0;
+        }
+
+        .main-content ul, .main-content ol {
+            margin-left: 2rem;
+            margin-bottom: 1rem;
+        }
+
+        .main-content li {
+            margin-bottom: 0.5rem;
+            color: #d0d0d0;
+        }
+
+        .note {
+            background-color: #2d1f3f;
+            border-left: 4px solid #8b5cf6;
+            padding: 1rem;
+            margin: 1rem 0;
+            border-radius: 4px;
+        }
+
+        .note strong {
+            color: #8b5cf6;
+        }
+
+        .invite-button {
+            display: inline-block;
+            background: linear-gradient(135deg, #8b5cf6, #7c3aed);
+            color: #ffffff;
+            padding: 0.75rem 2rem;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 1.1rem;
+            margin: 1.5rem 0;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 6px rgba(139, 92, 246, 0.3);
+        }
+
+        .invite-button:hover {
+            background: linear-gradient(135deg, #7c3aed, #6d28d9);
+            transform: translateY(-2px);
+            box-shadow: 0 6px 12px rgba(139, 92, 246, 0.4);
+        }
+
+        /* Mobile Responsive */
+        @media (max-width: 768px) {
+            .sidebar {
+                transform: translateX(-100%);
+                z-index: 999;
+                width: 250px;
+            }
+
+            .sidebar.active {
+                transform: translateX(0);
+            }
+
+            .menu-toggle {
+                display: block;
+            }
+
+            .main-content {
+                margin-left: 0;
+                padding: 4rem 1.5rem 2rem;
+            }
+
+            .main-content h1 {
+                font-size: 2rem;
+            }
+
+            .main-content h2 {
+                font-size: 1.5rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .main-content {
+                padding: 4rem 1rem 1rem;
+            }
+
+            .main-content h1 {
+                font-size: 1.75rem;
+            }
+
+            .main-content h2 {
+                font-size: 1.3rem;
+            }
+
+            .sidebar {
+                width: 220px;
+            }
+        }
+
+        /* Scrollbar Styling */
+        ::-webkit-scrollbar {
+            width: 10px;
+        }
+
+        ::-webkit-scrollbar-track {
+            background: #1e1e1e;
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: #8b5cf6;
+            border-radius: 5px;
+        }
+
+        ::-webkit-scrollbar-thumb:hover {
+            background: #7c3aed;
+        }
+    </style>
+</head>
+<body>
+    <button class="menu-toggle" onclick="toggleMenu()">☰ Menu</button>
+
+    <div class="container">
+        <!-- Sidebar Navigation -->
+        <aside class="sidebar" id="sidebar">
+            <h2>Bot Documentation</h2>
+            <nav>
+                <ul>
+                    <li><a href="#introduction" class="active">Introduction</a></li>
+                    <li><a href="#birthday">Birthday Features</a></li>
+                    <li><a href="#blacklist">Blacklist Features</a></li>
+                    <li><a href="#verification">Verification Features</a></li>
+                    <li><a href="#reaction-roles">Reaction Roles</a></li>
+                    <li><a href="#counting">Counting Game</a></li>
+                    <li><a href="#general">General Commands</a></li>
+                    <li><a href="#suggestions">Suggestions</a></li>
+                </ul>
+            </nav>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            <h1>VRFamo Bot Documentation</h1>
+
+            <section id="introduction">
+                <h2>Introduction</h2>
+                <p>Welcome to the VRFamo Bot documentation.<br>This guide will explain all of the options with the bot and how to use them we suggest takeing a read before runnung the /setup command</P>
+                
+                <a href="https://discord.com/oauth2/authorize?client_id=1461723249128898751&permissions=6755401924439108&integration_type=0&scope=bot" class="invite-button" target="_blank">Click me to invite the bot to a server</a>
+                
+                <div class="note">
+                    <strong>Note:</strong> The bot will require certain permissions to function correctly. Ensure it has the necessary roles and permissions in your server.<br><br> All of these features can be enabled or disabled during the setup process using the <code>/setup</code> command. whitch can be rerun at any time to update the configuration.
+                </div>
+            </section>
+
+            <section id="birthday">
+                <h2>🎂 Birthday Features</h2>
+                <p>Manage and celebrate birthdays across all servers where the bot is present.</p>
+                <p>This command allows users to set their birthday, which will be celebrated automatically by the bot these will sync between other servers where the bot is active.<br>if a user has been set up on another server it will also work in your server.</p>
+                <p><code>/set-birthday &lt;date&gt;</code> - Set your own birthday (DD/MM format: Day/Month)</p>
+                
+                <ul>
+                    <li>This command can be re-run to update the date if you would like</li>
+                    <li>Birthdays are announced automatically in the channel you pick during the set up</li>
+                </ul>
+            </section>
+
+            <section id="blacklist">
+                <h2>Blacklist Features</h2>
+                <p>Protect your server by detecting and managing blacklisted users.</p>
+
+                <P> This feature uses a list of known users who have been removed from the VRFamo Server for various reasons<br> it does not automatically ban them however it will send a notification to the log channel you set, this notification will provide a breif description as to why they where added to the blacklist
+                <p><code>/check-blacklist</code> - Check for blacklisted users in this server (Admin only)</p>
+                
+                <h3>Auto Ban/Detect</h3>
+                <ul>
+                    <li>When a blacklisted user joins, you will be notified in the logs channel</li>
+                    <li>Any users with the administrator permission can use the ban button on the notification</li>
+                </ul>
+                <h3>Adding to the Blacklist</h3>
+                <p>To get some one added to the blacklist you can either log a ticket on the VRFamo Server with evidence of their misbehavior or message me directly about it on Discord (Snowy708)
+                <div class="note">
+                    <strong>Note:</strong> The blacklist is maintained by the VRFamo Staff team and is subject to change. Users may be added or removed based on their behavior. <br><br> If you believe a user has been mistakenly blacklisted, please contact a member of the VRFamo Staff team for review.</p>
+            </section>
+
+            <section id="verification">
+                <h2>Verification Features</h2>
+                <p>This feature is to help mitigate against server raids and keep bots away from the server.</p>
+                
+                <p><code>/preview_verification_messages</code> - Preview the DMs sent to users (Admin only)</p>
+                
+                <p><code>/notify-unverified</code> - Send DMs to unverified users (Owner only, one-time)</p>
+                <p style="margin-left: 2rem; color: #b8b8b8;">This is to aid in the setup of the verification system</p>
+                
+                <p><code>/assign-nonverified</code> - Assign all people without the verified (@verified) role the non-verified role (@not verified) (Admin only)</p>
+
+                <p><code>/verify</code> - Assign yourself the verified role (@verified)</p>
+                
+                <p>We recommend setting up a dedicated verification channel where new members can run the <code>/verify</code> command to gain access to the rest of the server.<br>While also restricting their access to all other channels until they are verified.(at least not letting them message in any channels)</p>
+                <div class="note">
+                    <strong>Note:</strong> Make sure to set up the roles and channels properly during the setup process to ensure smooth operation of the verification system.
+            </section>
+
+            <section id="reaction-roles">
+                <h2>Reaction Roles</h2>
+                <p>This will allow users to assign themselves roles by reacting to a specific message.</p>
+                
+                <p><code>/setup_reaction_roles &lt;channel&gt; &lt;message_id&gt; &lt;emoji&gt; &lt;add_role&gt; [remove_role]</code></p>
+                <p><code>/list_reaction_roles</code> - List all reaction roles set up in this server</p>
+                <p><code>/remove_reaction_role &lt;index&gt;</code> - Remove a specific reaction role (you will need to use the <code>/list_reaction_roles</code> command to find the index)</p>
+
+                <p>the bot will have to have a role above the roles you want it to assign/remove within the role hierarchy for this to work properly</p>
+
+                <div class="note">
+                    <strong>Note:</strong> You can set up multiple reaction roles on the same message by re-running the command with different emojis and roles.<br>(the maximum number of reactions per server has been limited to 15 to prevent spam i may change this in the future)</p>
+                    <strong></strong>You may need developer mode enabled within discord to get the message ID</p>
+            </section>
+
+            <section id="counting">
+                <h2>Counting Game</h2>
+                <p>A little fun counting game where users count as high as they can</p>
+                
+                <p><code>/setup_counting &lt;channel&gt;</code> - Set the counting channel (Admin only)</p>
+
+                <P>Once set up this runs itself, there are 2 game modes Normal and Forgiveness</P>
+                <p style="margin-left: 2rem; color: #b8b8b8;">Normal mode will reset the count to 1 on the first wrong number</p>
+                <p style="margin-left: 2rem; color: #b8b8b8;">Forgiveness mode will gives you 3 chances before resetting fully, each strike you will go back 10</p>
+                
+                <ul>
+                    <li>Users count up from 1 in the designated channel</li>
+                    <li>Note: To change the counting channel, re-run /setup_counting</li>
+                </ul>
+            </section>
+
+            <section id="general">
+                <h2>General Commands</h2>
+                <p>Additional commands for bot configuration and management.</p>
+                
+                <p><code>/setup</code> - Reconfigure bot settings (Admin only)</p>
+                
+                <p><code>/view_config</code> - View current configuration to see what features are enabled or disabled</p>
+
+            </section>
+
+            <section id="suggestions">
+                <h2>Suggestions for Improvements</h2>
+                <p>If you have any suggestions for new features or improvements, feel free to reach out on the <a href="https://vrfamo.com/discord" target="_blank" style="color: #8b5cf6; text-decoration: underline;">VRFamo Discord</a> server or contact me directly on Discord (Snowy708).</p>
+            </section>  
+        </main>
+    </div>
+
+    <script>
+        // Mobile menu toggle
+        function toggleMenu() {
+            const sidebar = document.getElementById('sidebar');
+            sidebar.classList.toggle('active');
+        }
+
+        // Close menu when clicking outside on mobile
+        document.addEventListener('click', function(event) {
+            const sidebar = document.getElementById('sidebar');
+            const menuToggle = document.querySelector('.menu-toggle');
+            
+            if (window.innerWidth <= 768 && 
+                !sidebar.contains(event.target) && 
+                !menuToggle.contains(event.target) &&
+                sidebar.classList.contains('active')) {
+                sidebar.classList.remove('active');
+            }
+        });
+
+        // Smooth scrolling and active link handling
+        document.querySelectorAll('.sidebar nav a').forEach(link => {
+            link.addEventListener('click', function(e) {
+                e.preventDefault();
+                
+                // Remove active class from all links
+                document.querySelectorAll('.sidebar nav a').forEach(l => l.classList.remove('active'));
+                
+                // Add active class to clicked link
+                this.classList.add('active');
+                
+                // Smooth scroll to section
+                const targetId = this.getAttribute('href');
+                const targetSection = document.querySelector(targetId);
+                
+                if (targetSection) {
+                    targetSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                }
+                
+                // Close mobile menu after clicking
+                if (window.innerWidth <= 768) {
+                    document.getElementById('sidebar').classList.remove('active');
+                }
+            });
+        });
+
+        // Update active link on scroll
+        window.addEventListener('scroll', function() {
+            let current = '';
+            const sections = document.querySelectorAll('section');
+            
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop;
+                const sectionHeight = section.clientHeight;
+                if (pageYOffset >= (sectionTop - 100)) {
+                    current = section.getAttribute('id');
+                }
+            });
+
+            document.querySelectorAll('.sidebar nav a').forEach(link => {
+                link.classList.remove('active');
+                if (link.getAttribute('href') === '#' + current) {
+                    link.classList.add('active');
+                }
+            });
+        });
+    </script>
+</body>
+</html>
