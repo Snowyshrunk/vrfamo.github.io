@@ -278,7 +278,9 @@
                     <li><a href="#blacklist">Blacklist Features</a></li>
                     <li><a href="#verification">Verification Features</a></li>
                     <li><a href="#reaction-roles">Reaction Roles</a></li>
+                    <li><a href="#tts">Text-to-Speech</a></li>
                     <li><a href="#counting">Counting Game</a></li>
+                    <li><a href="#tickets">Ticket System</a></li>
                     <li><a href="#general">General Commands</a></li>
                     <li><a href="#suggestions">Suggestions</a></li>
                 </ul>
@@ -296,14 +298,14 @@
                 <a href="https://discord.com/oauth2/authorize?client_id=1461723249128898751&permissions=6755401924439108&integration_type=0&scope=bot" class="invite-button" target="_blank">Click me to invite the bot to a server</a>
                 
                 <div class="note">
-                    <strong>Note:</strong> The bot will require certain permissions to function correctly. Ensure it has the necessary roles and permissions in your server.<br><br> All of these features can be enabled or disabled during the setup process using the <code>/setup</code> command. whitch can be rerun at any time to update the configuration.
+                    <strong>Note:</strong> The bot will require certain permissions to function correctly. Ensure it has the necessary roles and permissions in your server.<br><br> All of these features can be enabled or disabled during the setup process using the <code>/setup</code> command, which can be re-run at any time to update the configuration.
                 </div>
             </section>
 
             <section id="birthday">
                 <h2>🎂 Birthday Features</h2>
                 <p>Manage and celebrate birthdays across all servers where the bot is present.</p>
-                <p>This command allows users to set their birthday, which will be celebrated automatically by the bot these will sync between other servers where the bot is active.<br>if a user has been set up on another server it will also work in your server.</p>
+                <p>This command allows users to set their birthday, which will be celebrated automatically by the bot. These will sync between other servers where the bot is active.<br>If a user has been set up on another server it will also work in your server.</p>
                 <p><code>/set-birthday &lt;date&gt;</code> - Set your own birthday (DD/MM format: Day/Month)</p>
                 
                 <ul>
@@ -316,13 +318,13 @@
                 <h2>Blacklist Features</h2>
                 <p>Protect your server by detecting and managing blacklisted users.</p>
 
-                <P> This feature uses a list of known users who have been removed from the VRFamo Server for various reasons<br> it does not automatically ban them however it will send a notification to the log channel you set, this notification will provide a breif description as to why they where added to the blacklist
+                <P> This feature uses a list of known users who have been removed from the VRFamo Server for various reasons<br> it does not automatically ban them however it will send a notification to the log channel you set, this notification will provide a brief description as to why they were added to the blacklist.
                 <p><code>/check-blacklist</code> - Check for blacklisted users in this server (Admin only)</p>
                 
                 <h3>Auto Ban/Detect</h3>
                 <ul>
                     <li>When a blacklisted user joins, you will be notified in the logs channel</li>
-                    <li>Any users with the administrator permission can use the ban button on the notification</li>
+                    <li>Any users with administrator permissions can use the ban button on the notification</li>
                 </ul>
                 <h3>Adding to the Blacklist</h3>
                 <p>To get some one added to the blacklist you can either log a ticket on the VRFamo Server with evidence of their misbehavior or message me directly about it on Discord (Snowy708)
@@ -356,11 +358,28 @@
                 <p><code>/list_reaction_roles</code> - List all reaction roles set up in this server</p>
                 <p><code>/remove_reaction_role &lt;index&gt;</code> - Remove a specific reaction role (you will need to use the <code>/list_reaction_roles</code> command to find the index)</p>
 
-                <p>the bot will have to have a role above the roles you want it to assign/remove within the role hierarchy for this to work properly</p>
+                <p>The bot will have to have a role above the roles you want it to assign/remove within the role hierarchy for this to work properly</p>
 
                 <div class="note">
                     <strong>Note:</strong> You can set up multiple reaction roles on the same message by re-running the command with different emojis and roles.<br>(the maximum number of reactions per server has been limited to 15 to prevent spam i may change this in the future)</p>
                     <strong></strong>You may need developer mode enabled within discord to get the message ID</p>
+            </section>
+
+            <section id="tts">
+                <h2>Text-to-Speech (TTS)</h2>
+                <p>This feature lets the bot read messages aloud in a voice channel.</p>
+
+                <p><code>/join-tts</code> - Join your voice channel and start reading messages from the current text channel</p>
+                <p><code>/leave-tts</code> - Leave the voice channel and stop text-to-speech</p>
+                <p><code>/tts-voice &lt;voice&gt;</code> - Change the voice style (10 different options)</p>
+
+                <ul>
+                    <li>TTS only reads messages in the text channel where you ran <code>/join-tts</code></li>
+                    <li>Messages with attachments or links are skipped</li>
+                    <li>There is a word filter to prevent inappropriate content being read aloud</li>
+                </ul>
+                <div class="note">
+                    <strong>Note:</strong> Make sure the bot has permission to connect and speak in the voice channel for TTS to work properly.<br><br> Please contact Snowy708 for new phrases to be added to the filter</p>
             </section>
 
             <section id="counting">
@@ -369,14 +388,33 @@
                 
                 <p><code>/setup_counting &lt;channel&gt;</code> - Set the counting channel (Admin only)</p>
 
-                <P>Once set up this runs itself, there are 2 game modes Normal and Forgiveness</P>
+                <P>Once set up this runs itself, there are two game modes: Normal and Forgiveness</P>
                 <p style="margin-left: 2rem; color: #b8b8b8;">Normal mode will reset the count to 1 on the first wrong number</p>
-                <p style="margin-left: 2rem; color: #b8b8b8;">Forgiveness mode will gives you 3 chances before resetting fully, each strike you will go back 10</p>
+                <p style="margin-left: 2rem; color: #b8b8b8;">Forgiveness mode will give you 3 chances before resetting fully, each strike you will go back 10</p>
                 
                 <ul>
                     <li>Users count up from 1 in the designated channel</li>
                     <li>Note: To change the counting channel, re-run /setup_counting</li>
                 </ul>
+            </section>
+
+            <section id="tickets">
+                <h2>Ticket System</h2>
+                <p>A support ticket system using threads inside a channel.</p>
+
+                <p><code>/ticket-setup &lt;channel&gt; &lt;role1&gt; [role2] [role3]</code> - Configure the ticket system (Admin only)</p>
+                <p>Role 1 is mandatory, roles 2 and 3 are optional</p>
+                <p><code>/ticket</code> - Open a support ticket and choose the support team</p>
+                <p><code>/close</code> - Close your ticket thread</p>
+
+                <ul>
+                    <li>Tickets are created as private threads and only visible to you and the support team</li>
+                    <li>Support roles get added to the thread automatically</li>
+                    <li>Use <code>/close</code> inside the thread once the issue is resolved</li>
+                </ul>
+
+                <div class="note">
+                    <strong>Note:</strong> Once the setup command is run, it will leave a message in that channel to guide users on how to open a ticket.<br> I would suggest copying this message and customising it for your server, then sending it in that channel yourself</p>
             </section>
 
             <section id="general">
