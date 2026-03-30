@@ -177,6 +177,55 @@
             color: #8b5cf6;
         }
 
+        .warning {
+            background-color: #3a2a1a;
+            border-left: 4px solid #f59e0b;
+            padding: 1rem;
+            margin: 1rem 0;
+            border-radius: 4px;
+        }
+
+        .warning strong {
+            color: #f59e0b;
+        }
+
+        .collapsible {
+            margin-top: 1rem;
+            border: 1px solid #3a3a3a;
+            border-radius: 6px;
+            background-color: #1f1f1f;
+            overflow: hidden;
+        }
+
+        .collapsible summary {
+            cursor: pointer;
+            padding: 0.9rem 1rem;
+            color: #e0e0e0;
+            font-weight: 600;
+            list-style: none;
+            background-color: #262626;
+            border-left: 4px solid #8b5cf6;
+        }
+
+        .collapsible summary::-webkit-details-marker {
+            display: none;
+        }
+
+        .collapsible summary::after {
+            content: "+";
+            float: right;
+            color: #8b5cf6;
+            font-size: 1.1rem;
+        }
+
+        .collapsible[open] summary::after {
+            content: "-";
+        }
+
+        .collapsible-content {
+            padding: 1rem;
+        }
+
         .invite-button {
             display: inline-block;
             background: linear-gradient(135deg, #8b5cf6, #7c3aed);
@@ -368,18 +417,27 @@
             <section id="tts">
                 <h2>Text-to-Speech (TTS)</h2>
                 <p>This feature lets the bot read messages aloud in a voice channel.</p>
+                <div class="warning">
+                    <strong>Maintenance Notice:</strong> TTS is currently not working and has been removed pending maintenance.
+                </div>
 
-                <p><code>/join-tts</code> - Join your voice channel and start reading messages from the current text channel</p>
-                <p><code>/leave-tts</code> - Leave the voice channel and stop text-to-speech</p>
-                <p><code>/tts-voice &lt;voice&gt;</code> - Change the voice style (10 different options)</p>
+                <details class="collapsible">
+                    <summary>Show previous TTS command details</summary>
+                    <div class="collapsible-content">
+                        <p><code>/join-tts</code> - Join your voice channel and start reading messages from the current text channel</p>
+                        <p><code>/leave-tts</code> - Leave the voice channel and stop text-to-speech</p>
+                        <p><code>/tts-voice &lt;voice&gt;</code> - Change the voice style (10 different options)</p>
 
-                <ul>
-                    <li>TTS only reads messages in the text channel where you ran <code>/join-tts</code></li>
-                    <li>Messages with attachments or links are skipped</li>
-                    <li>There is a word filter to prevent inappropriate content being read aloud</li>
-                </ul>
-                <div class="note">
-                    <strong>Note:</strong> Make sure the bot has permission to connect and speak in the voice channel for TTS to work properly.<br><br> Please contact Snowy708 for new phrases to be added to the filter</p>
+                        <ul>
+                            <li>TTS only reads messages in the text channel where you ran <code>/join-tts</code></li>
+                            <li>Messages with attachments or links are skipped</li>
+                            <li>There is a word filter to prevent inappropriate content being read aloud</li>
+                        </ul>
+                        <div class="note">
+                            <strong>Note:</strong> Make sure the bot has permission to connect and speak in the voice channel for TTS to work properly.<br><br> Please contact Snowy708 for new phrases to be added to the filter
+                        </div>
+                    </div>
+                </details>
             </section>
 
             <section id="counting">
