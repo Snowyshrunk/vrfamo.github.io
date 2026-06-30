@@ -343,12 +343,17 @@
         }
 
         .staff-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
             gap: 18px;
         }
 
         .staff-card {
+            flex: 0 1 340px;
+            width: 100%;
+            max-width: 340px;
+            box-sizing: border-box;
             background: var(--staff-bg, linear-gradient(180deg, rgba(34, 34, 34, 0.95), rgba(20, 20, 20, 0.95)));
             border: 2px solid var(--staff-border, rgba(255, 255, 255, 0.25));
             border-radius: 14px;
@@ -444,14 +449,22 @@
         }
 
         .staff-toggle-wrap {
-            text-align: center;
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
             margin-top: 16px;
         }
 
         .staff-toggle {
-            display: inline-block;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: fit-content;
+            min-width: 140px;
             padding: 10px 20px;
             font-size: 1rem;
+            line-height: 1;
             font-weight: bold;
             color: #111;
             background: #00ffe7;
@@ -650,6 +663,8 @@
                     </div>
                 </details>
             </article>
+
+        </div>
 
         <div class="staff-toggle-wrap">
             <button id="staffToggleButton" class="staff-toggle" type="button" aria-expanded="false">Show More</button>
