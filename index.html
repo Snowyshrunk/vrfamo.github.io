@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <title>VR-Famo</title>
-    <link href="https://fonts.googleapis.com/css2?family=Droid+Sans+Mono&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Droid+Sans+Mono&family=Fredericka+the+Great&display=swap" rel="stylesheet">
     <style>
         body {
             display: flex;
@@ -11,7 +11,10 @@
             min-height: 100vh;
             margin: 0;
             font-family: 'Droid Sans Mono', monospace;
-            background: linear-gradient(to bottom right, #6a0dad, #9b30b0);
+            background:
+                radial-gradient(circle at left top, rgba(192, 0, 0, 0.45) 0%, rgba(192, 0, 0, 0) 42%),
+                radial-gradient(circle at right top, rgba(192, 0, 0, 0.45) 0%, rgba(192, 0, 0, 0) 42%),
+                linear-gradient(to bottom right, #6a0dad, #9b30b0);
             color: #e0e0e0;
             animation: fadeIn 1s ease-out;
             position: relative;
@@ -25,14 +28,13 @@
         #nav {
             text-align: center;
             padding: 20px 0;
-            background-color: #000000;
-            border-bottom: 2px solid #444;
+            background: linear-gradient(to bottom, #9b30b0 0%, #a83a3a 100%);
             z-index: 10;
             position: relative;
         }
 
         #nav img {
-            height: 200px;
+            height: 280px;
             width: auto;
             margin-bottom: 10px;
             animation: fadeIn 1.5s ease;
@@ -58,7 +60,7 @@
 
         .main {
             max-width: 900px;
-            margin: 40px auto;
+            margin: 10px auto 40px;
             padding: 0 20px;
             animation: fadeIn 1.3s ease-out;
             z-index: 10;
@@ -66,9 +68,13 @@
         }
 
         .main h1 {
+            font-family: 'Fredericka the Great', cursive;
+            font-size: clamp(3.5rem, 12vw, 10rem);
             text-decoration: underline;
+            margin-top: 0;
             margin-bottom: 15px;
             z-index: 10;
+            line-height: 1;
         }
 
         .main p {
@@ -92,6 +98,7 @@
             margin-bottom: 20px;
             text-decoration: underline;
             z-index: 10;
+            text-align: center;
         }
 
         .schedule {
@@ -231,6 +238,236 @@
             z-index: 5;
         }
 
+        .platform-tiktok {
+            color: #ffffff;
+            background: #111111;
+            border-color: #25F4EE;
+            box-shadow: -3px 0 0 #25F4EE, 3px 0 0 #FE2C55, 0 0 12px rgba(254, 44, 85, 0.45);
+        }
+
+        .platform-tiktok:hover {
+            background: #1a1a1a;
+            color: #ffffff;
+            border-color: #FE2C55;
+            box-shadow: -3px 0 0 #25F4EE, 3px 0 0 #FE2C55, 0 0 16px rgba(37, 244, 238, 0.5);
+        }
+
+        .platform-youtube {
+            color: #ffffff;
+            background: #ff0000;
+            border-color: #ffffff;
+            box-shadow: 0 0 10px rgba(255, 0, 0, 0.8), 0 0 22px rgba(255, 255, 255, 0.4);
+        }
+
+        .platform-youtube:hover {
+            background: #cc0000;
+            color: #ffffff;
+            border-color: #ffffff;
+            box-shadow: 0 0 12px rgba(255, 0, 0, 0.95), 0 0 24px rgba(255, 255, 255, 0.5);
+        }
+
+        .platform-twitch {
+            color: #ffffff;
+            background: #9146FF;
+            border-color: #ffffff;
+            box-shadow: 0 0 10px rgba(145, 70, 255, 0.85), 0 0 22px rgba(145, 70, 255, 0.5);
+        }
+
+        .platform-twitch:hover {
+            background: #772ce8;
+            color: #ffffff;
+            border-color: #ffffff;
+            box-shadow: 0 0 12px rgba(145, 70, 255, 1), 0 0 25px rgba(145, 70, 255, 0.6);
+        }
+
+        .platform-discord {
+            color: #ffffff;
+            background: #5865F2;
+            border-color: #ffffff;
+            box-shadow: 0 0 10px rgba(88, 101, 242, 0.85), 0 0 22px rgba(88, 101, 242, 0.45);
+        }
+
+        .platform-discord:hover {
+            background: #4752c4;
+            color: #ffffff;
+            border-color: #ffffff;
+            box-shadow: 0 0 12px rgba(88, 101, 242, 1), 0 0 25px rgba(88, 101, 242, 0.6);
+        }
+
+        .schedule-section {
+            width: 100%;
+            max-width: 1200px;
+            margin: 10px auto 40px;
+            padding: 0 20px;
+            box-sizing: border-box;
+            z-index: 10;
+        }
+
+        .next-stream-preview {
+            max-width: 420px;
+            margin: 0 auto 14px;
+            padding: 14px 16px;
+            border-radius: 12px;
+            background: rgba(22, 22, 22, 0.82);
+            border: 2px solid rgba(213, 128, 255, 0.55);
+            color: #f6e8ff;
+            text-align: center;
+            font-size: 1.05rem;
+            box-shadow: 0 0 12px rgba(160, 32, 240, 0.3);
+        }
+
+        .schedule-full {
+            display: none;
+            margin-top: 10px;
+        }
+
+        .schedule-full.is-visible {
+            display: block;
+        }
+
+        .staff-section {
+            width: 100%;
+            max-width: 1200px;
+            margin: 10px auto 40px;
+            padding: 0 20px;
+            box-sizing: border-box;
+            z-index: 10;
+        }
+
+        .staff-title {
+            font-size: 2rem;
+            color: #d580ff;
+            text-decoration: underline;
+            text-align: center;
+            margin: 0 0 24px;
+        }
+
+        .staff-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 18px;
+        }
+
+        .staff-card {
+            background: var(--staff-bg, linear-gradient(180deg, rgba(34, 34, 34, 0.95), rgba(20, 20, 20, 0.95)));
+            border: 2px solid var(--staff-border, rgba(255, 255, 255, 0.25));
+            border-radius: 14px;
+            padding: 14px;
+            box-shadow: 0 0 14px rgba(0, 0, 0, 0.35);
+            color: #f5f1ff;
+        }
+
+        .staff-head {
+            display: grid;
+            grid-template-columns: 92px 1fr;
+            gap: 12px;
+            align-items: center;
+            margin-bottom: 10px;
+        }
+
+        .staff-pic {
+            width: 92px;
+            height: 92px;
+            object-fit: cover;
+            border-radius: 12px;
+            border: 2px solid rgba(255, 255, 255, 0.7);
+            background: rgba(255, 255, 255, 0.15);
+        }
+
+        .staff-name {
+            margin: 0;
+            font-size: 1.5rem;
+            line-height: 1.1;
+        }
+
+        .staff-nickname {
+            margin: 5px 0 0;
+            font-size: 0.9rem;
+            opacity: 0.9;
+        }
+
+        .staff-role {
+            margin: 8px 0 10px;
+            padding: 8px 10px;
+            border-radius: 8px;
+            background: rgba(255, 255, 255, 0.12);
+            font-size: 0.95rem;
+            font-weight: bold;
+        }
+
+        .staff-card details {
+            margin-top: 8px;
+            border-radius: 8px;
+            background: rgba(0, 0, 0, 0.2);
+            padding: 8px 10px;
+        }
+
+        .staff-card summary {
+            cursor: pointer;
+            font-weight: bold;
+            color: #ffffff;
+        }
+
+        .staff-card p {
+            margin: 8px 0 0;
+            font-size: 0.9rem;
+            line-height: 1.4;
+        }
+
+        .staff-socials {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin-top: 8px;
+        }
+
+        .staff-socials a {
+            text-decoration: none;
+            font-size: 0.85rem;
+            color: #ffffff;
+            padding: 6px 10px;
+            border: 1px solid rgba(255, 255, 255, 0.45);
+            border-radius: 999px;
+            background: rgba(255, 255, 255, 0.14);
+        }
+
+        .staff-socials a:hover {
+            background: rgba(255, 255, 255, 0.24);
+        }
+
+        .extra-staff {
+            display: none;
+        }
+
+        .extra-staff.is-visible {
+            display: block;
+        }
+
+        .staff-toggle-wrap {
+            text-align: center;
+            margin-top: 16px;
+        }
+
+        .staff-toggle {
+            display: inline-block;
+            padding: 10px 20px;
+            font-size: 1rem;
+            font-weight: bold;
+            color: #111;
+            background: #00ffe7;
+            border: 2px solid #ffffff;
+            border-radius: 999px;
+            cursor: pointer;
+            box-shadow: 0 0 8px #00ffe7, 0 0 18px #00ffe7;
+            transition: all 0.25s ease;
+        }
+
+        .staff-toggle:hover {
+            background: #ffcc00;
+            box-shadow: 0 0 10px #ffcc00, 0 0 22px #ffcc00;
+            transform: scale(1.03);
+        }
+
     </style>
 </head>
 <body>
@@ -238,72 +475,208 @@
 
     <div id="nav">
         <a href="https://vrfamo.com">
-            <img src="logo.jpg" alt="VRFamo Logo">
+            <img src="vrf%20logo.png" alt="VRF Logo">
         </a>
     </div>
     
     <div class="main">
-        <h1>VRFamo</h1>
+        <h1>VR Famo</h1>
         <p>This is just a small website for our links and schedule<br>If you would like to support us go check out our merch store!<br>(Our schedule may change)</p>
     </div>
     
     <div class="links2">
+        <a href="https://www.tiktok.com/@vr.famo" class="neon-button platform-tiktok" target="_blank" rel="noopener noreferrer">🎥 TikTok</a>
+        <a href="https://www.youtube.com/@VRFamo" class="neon-button platform-youtube" target="_blank" rel="noopener noreferrer">📺 YouTube</a>
+        <a href="https://www.twitch.tv/vr_famo" class="neon-button platform-twitch" target="_blank" rel="noopener noreferrer">🟣 Twitch</a>
+    </div>
+
+    <div class="links2">
         <a href="https://merch.vrfamo.com/" class="neon-button" target="_blank" rel="noopener noreferrer">🎁 Merch</a>
+        <a href="https://vrfamo.com/discord" class="neon-button platform-discord" target="_blank" rel="noopener noreferrer">💬 Discord</a>
+        <a href="https://vrc.group/VRFAMO.0864" class="neon-button" target="_blank" rel="noopener noreferrer">👥 VRChat Group</a>
+    </div>
+
+    <div class="links2">
         <a href="https://vrfamo.com/VRChat-Pics/" class="neon-button" target="_blank" rel="noopener noreferrer">📸 VRChat Pics</a>
         <a href="https://vrfamo.com/FanArt" class="neon-button" target="_blank" rel="noopener noreferrer">🎨 FanArt</a>
     </div>
-    <div class="links2">
-        <a href="https://www.ticktok.com/@vr.famo" class="neon-button" target="_blank" rel="noopener noreferrer">🎥 TikTok</a>
-        <a href="https://vrfamo.com/discord" class="neon-button" target="_blank" rel="noopener noreferrer">💬 Discord</a>
-        <a href="https://vrc.group/VRFAMO.0864" class="neon-button" target="_blank" rel="noopener noreferrer">👥 VRChat Group</a>
-        <a href="https://linktr.ee/VR.famo" class="neon-button" target="_blank" rel="noopener noreferrer">🌐 Link Tree</a>    
-    </div>
 
-    <div class="schedule-container">
+    <section class="schedule-section" aria-label="Stream Schedule">
         <div class="schedule-title">Stream Schedule</div>
-        <div class="schedule" aria-label="Weekly Schedule">
-            <div class="day">
-                <h2>Monday</h2>
-                <div class="events">
-                    <div class="event" data-day="Monday" data-start="19:30" data-end="21:30" data-timezone="Europe/London">
-                        Stream:<br>Loading...
-                    </div>
-                </div>
-            </div>
-            <div class="day"><h2>Tuesday</h2><div class="events"></div></div>
-            <div class="day">
-                <h2>Wednesday</h2>
-                <div class="events">
-                    <div class="event" data-day="Wednesday" data-start="19:30" data-end="21:30" data-timezone="Europe/London">
-                        Stream:<br>Loading...
-                    </div>
-                </div>
-            </div>
-            <div class="day">
-                <h2>Thursday</h2>
-                <div class="events">
-                    <div class="event" data-day="Thursday" data-start="19:30" data-end="21:30" data-timezone="Europe/London">
-                        Stream:<br>Loading...
-                    </div>
-                </div>
-            </div>
-            <div class="day"><h2>Friday</h2><div class="events"></div></div>
+        <div class="next-stream-preview">
+            <strong id="nextStreamText">Next Stream: Loading...</strong>
         </div>
-    </div>
+        <div class="staff-toggle-wrap">
+            <button id="scheduleToggleButton" class="staff-toggle" type="button" aria-expanded="false">Show More</button>
+        </div>
 
-    <div class="schedule-container">
-        <div class="schedule" aria-label="Weekly Schedule">
-            <div class="day">
-                <h2>Saturday</h2>
-                <div class="events">
-                    <div class="event" data-day="Saturday" data-start="19:30" data-end="21:30" data-timezone="Europe/London">
-                        Stream:<br>Loading...
+        <div id="fullScheduleWrapper" class="schedule-full">
+            <div class="schedule-container">
+                <div class="schedule" aria-label="Weekly Schedule">
+                    <div class="day">
+                        <h2>Monday</h2>
+                        <div class="events">
+                            <div class="event" data-day="Monday" data-start="19:30" data-end="21:30" data-timezone="Europe/London">
+                                Stream:<br>Loading...
+                            </div>
+                        </div>
                     </div>
+                    <div class="day"><h2>Tuesday</h2><div class="events"></div></div>
+                    <div class="day">
+                        <h2>Wednesday</h2>
+                        <div class="events">
+                            <div class="event" data-day="Wednesday" data-start="19:30" data-end="21:30" data-timezone="Europe/London">
+                                Stream:<br>Loading...
+                            </div>
+                        </div>
+                    </div>
+                    <div class="day">
+                        <h2>Thursday</h2>
+                        <div class="events">
+                            <div class="event" data-day="Thursday" data-start="19:30" data-end="21:30" data-timezone="Europe/London">
+                                Stream:<br>Loading...
+                            </div>
+                        </div>
+                    </div>
+                    <div class="day"><h2>Friday</h2><div class="events"></div></div>
                 </div>
             </div>
-            <div class="day"><h2>Sunday</h2><div class="events"></div></div>
+
+            <div class="schedule-container">
+                <div class="schedule" aria-label="Weekly Schedule">
+                    <div class="day">
+                        <h2>Saturday</h2>
+                        <div class="events">
+                            <div class="event" data-day="Saturday" data-start="19:30" data-end="21:30" data-timezone="Europe/London">
+                                Stream:<br>Loading...
+                            </div>
+                        </div>
+                    </div>
+                    <div class="day"><h2>Sunday</h2><div class="events"></div></div>
+                </div>
+            </div>
         </div>
-    </div>
+    </section>
+
+    <section class="staff-section" aria-label="Meet the Staff">
+        <h2 class="staff-title">Meet the Staff<br>(Coming soon)</h2>
+        <div class="staff-grid">
+            <article class="staff-card" style="--staff-bg: linear-gradient(160deg, rgba(54, 34, 94, 0.95), rgba(30, 19, 55, 0.95)); --staff-border: rgba(182, 133, 255, 0.55);">
+                <div class="staff-head">
+                    <img class="staff-pic" src="profile%20pics/Dazzala.png" alt="Profile picture of Dazzala">
+                    <div>
+                        <h3 class="staff-name">Dazzala</h3>
+                        <p class="staff-nickname">Nickname: Queen Dazzala</p>
+                    </div>
+                </div>
+                <div class="staff-role">Role: Owner</div>
+                <details>
+                    <summary>About Me</summary>
+                    <p>I have pink hair and a purple dress :D</p>
+                </details>
+                <details>
+                    <summary>Socials</summary>
+                    <div class="staff-socials">
+                        <a href="https://www.twitch.tv/vr_famo" target="_blank" rel="noopener noreferrer">Twitch</a>
+                        <a href="https://www.youtube.com/@VRFamo" target="_blank" rel="noopener noreferrer">YouTube</a>
+                        <a href="https://www.tiktok.com/@vr.famo" target="_blank" rel="noopener noreferrer">TikTok</a>
+                    </div>
+                </details>
+            </article>
+
+            <article class="staff-card" style="--staff-bg: linear-gradient(160deg, rgba(168, 58, 58, 0.95), rgba(122, 34, 34, 0.95)); --staff-border: rgba(255, 170, 170, 0.55);">
+                <div class="staff-head">
+                    <img class="staff-pic" src="profile%20pics/mochamon.png" alt="Profile picture of Mochamon">
+                    <div>
+                        <h3 class="staff-name">Mochamon</h3>
+                        <p class="staff-nickname">Nickname: ?</p>
+                    </div>
+                </div>
+                <div class="staff-role">Role: Owner</div>
+                <details>
+                    <summary>About Me</summary>
+                    <p>{about me}</p>
+                </details>
+                <details>
+                    <summary>Socials</summary>
+                    <div class="staff-socials">
+                        <a href="https://www.twitch.tv/" target="_blank" rel="noopener noreferrer">Twitch</a>
+                        <a href="https://www.youtube.com/" target="_blank" rel="noopener noreferrer">YouTube</a>
+                        <a href="https://discord.com/" target="_blank" rel="noopener noreferrer">Discord</a>
+                    </div>
+                </details>
+            </article>
+
+            <article class="staff-card" style="--staff-bg: linear-gradient(160deg, rgba(44, 27, 82, 0.95), rgba(22, 13, 46, 0.95)); --staff-border: rgba(170, 130, 240, 0.55);">
+                <div class="staff-head">
+                    <img class="staff-pic" src="profile%20pics/snowy.png" alt="Profile picture of Snowy">
+                    <div>
+                        <h3 class="staff-name">Snowy</h3>
+                        <p class="staff-nickname">Nickname: Discord God</p>
+                    </div>
+                </div>
+                <div class="staff-role">Role: Discord Manager</div>
+                <details>
+                    <summary>About Me</summary>
+                    <p>I enjoy helping take care of the VRFamo Discord.<br>I'm basically group tech support.<br>Also I guess I created the Discord Bot.</p>
+                </details>
+                <details>
+                    <summary>Socials</summary>
+                    <div class="staff-socials">
+                        <a href="https://www.twitch.tv/snowy708" target="_blank" rel="noopener noreferrer">Twitch</a>
+                        <a href="https://snowy708.com" target="_blank" rel="noopener noreferrer">Website</a>
+                    </div>
+                </details>
+            </article>
+
+            <article class="staff-card extra-staff" style="--staff-bg: linear-gradient(160deg, rgba(36, 84, 58, 0.95), rgba(18, 44, 29, 0.95)); --staff-border: rgba(140, 255, 196, 0.55);">
+                <div class="staff-head">
+                    <img class="staff-pic" src="vrf%20logo.png" alt="Profile picture placeholder">
+                    <div>
+                        <h3 class="staff-name">Staff Name</h3>
+                        <p class="staff-nickname">Nickname: "Quest Guide"</p>
+                    </div>
+                </div>
+                <div class="staff-role">Role/Title: Support Team</div>
+                <details>
+                    <summary>About Me</summary>
+                    <p>Hidden sample card. This appears when the Show More button is pressed.</p>
+                </details>
+                <details>
+                    <summary>Socials</summary>
+                    <div class="staff-socials">
+                        <a href="#">Discord</a>
+                        <a href="#">TikTok</a>
+                    </div>
+                </details>
+            </article>
+
+            <article class="staff-card extra-staff" style="--staff-bg: linear-gradient(160deg, rgba(92, 64, 27, 0.95), rgba(48, 33, 14, 0.95)); --staff-border: rgba(255, 206, 128, 0.55);">
+                <div class="staff-head">
+                    <img class="staff-pic" src="vrf%20logo.png" alt="Profile picture placeholder">
+                    <div>
+                        <h3 class="staff-name">Staff Name</h3>
+                        <p class="staff-nickname">Nickname: "Sunset Mode"</p>
+                    </div>
+                </div>
+                <div class="staff-role">Role/Title: Creative Team</div>
+                <details>
+                    <summary>About Me</summary>
+                    <p>Second hidden sample card. Duplicate and edit these as your staff list grows.</p>
+                </details>
+                <details>
+                    <summary>Socials</summary>
+                    <div class="staff-socials">
+                        <a href="#">YouTube</a>
+                        <a href="#">Twitch</a>
+                    </div>
+                </details>
+            </article>
+        </div>
+        <div class="staff-toggle-wrap">
+            <button id="staffToggleButton" class="staff-toggle" type="button" aria-expanded="false">Show More</button>
+        </div>
+    </section>
 
     <script>
         document.addEventListener("DOMContentLoaded", function () {
@@ -366,12 +739,39 @@
                 canvas.width = window.innerWidth;
                 canvas.height = window.innerHeight;
             });
+
+            const dayToIndex = {
+                Sunday: 0,
+                Monday: 1,
+                Tuesday: 2,
+                Wednesday: 3,
+                Thursday: 4,
+                Friday: 5,
+                Saturday: 6
+            };
+
+            function parse12HourTime(timeText) {
+                const match = timeText.match(/(\d{1,2}):(\d{2})\s*(AM|PM)/i);
+                if (!match) return null;
+
+                let hour = parseInt(match[1], 10);
+                const minute = parseInt(match[2], 10);
+                const meridiem = match[3].toUpperCase();
+
+                if (meridiem === 'PM' && hour !== 12) hour += 12;
+                if (meridiem === 'AM' && hour === 12) hour = 0;
+
+                return { hour, minute };
+            }
+
             const events = document.querySelectorAll('.event');
+            const convertedEvents = [];
 
             events.forEach(event => {
                 const startTime = event.getAttribute('data-start');
                 const endTime = event.getAttribute('data-end');
                 const sourceTZ = event.getAttribute('data-timezone');
+                const dayName = event.getAttribute('data-day');
 
                 if (!startTime || !endTime || !sourceTZ) return;
 
@@ -397,7 +797,82 @@
                 }).format(new Date(end.toLocaleString('en-US', { timeZone: sourceTZ })));
 
                 event.innerHTML = `Stream:<br>${startLocal} - ${endLocal}`;
+
+                if (dayName && dayToIndex[dayName] !== undefined) {
+                    convertedEvents.push({
+                        dayName,
+                        startLocal
+                    });
+                }
             });
+
+            const nextStreamText = document.getElementById('nextStreamText');
+
+            if (nextStreamText && convertedEvents.length > 0) {
+                const now = new Date();
+                let nextStream = null;
+
+                convertedEvents.forEach(item => {
+                    const parsedTime = parse12HourTime(item.startLocal);
+                    if (!parsedTime) return;
+
+                    const candidate = new Date(now);
+                    const targetDay = dayToIndex[item.dayName];
+                    const dayOffset = (targetDay - now.getDay() + 7) % 7;
+
+                    candidate.setDate(now.getDate() + dayOffset);
+                    candidate.setHours(parsedTime.hour, parsedTime.minute, 0, 0);
+
+                    if (candidate <= now) {
+                        candidate.setDate(candidate.getDate() + 7);
+                    }
+
+                    if (!nextStream || candidate < nextStream.when) {
+                        nextStream = {
+                            when: candidate,
+                            dayName: item.dayName,
+                            time: item.startLocal
+                        };
+                    }
+                });
+
+                if (nextStream) {
+                    nextStreamText.textContent = `Next Stream: ${nextStream.dayName} ${nextStream.time}`;
+                } else {
+                    nextStreamText.textContent = 'Next Stream: TBD';
+                }
+            }
+
+            const scheduleToggleButton = document.getElementById('scheduleToggleButton');
+            const fullScheduleWrapper = document.getElementById('fullScheduleWrapper');
+
+            if (scheduleToggleButton && fullScheduleWrapper) {
+                scheduleToggleButton.addEventListener('click', function () {
+                    const isExpanded = scheduleToggleButton.getAttribute('aria-expanded') === 'true';
+                    const nextExpanded = !isExpanded;
+
+                    fullScheduleWrapper.classList.toggle('is-visible', nextExpanded);
+                    scheduleToggleButton.setAttribute('aria-expanded', String(nextExpanded));
+                    scheduleToggleButton.textContent = nextExpanded ? 'Show Less' : 'Show More';
+                });
+            }
+
+            const staffToggleButton = document.getElementById('staffToggleButton');
+            const extraStaffCards = document.querySelectorAll('.extra-staff');
+
+            if (staffToggleButton && extraStaffCards.length > 0) {
+                staffToggleButton.addEventListener('click', function () {
+                    const isExpanded = staffToggleButton.getAttribute('aria-expanded') === 'true';
+                    const nextExpanded = !isExpanded;
+
+                    extraStaffCards.forEach(card => {
+                        card.classList.toggle('is-visible', nextExpanded);
+                    });
+
+                    staffToggleButton.setAttribute('aria-expanded', String(nextExpanded));
+                    staffToggleButton.textContent = nextExpanded ? 'Show Less' : 'Show More';
+                });
+            }
         });
     </script>
 </body>
