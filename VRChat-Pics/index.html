@@ -1,515 +1,658 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>VR-Famo</title>
-    <link href="https://fonts.googleapis.com/css2?family=Droid+Sans+Mono&display=swap" rel="stylesheet">
-    <style>
-        body {
-            display: flex;
-            flex-direction: column;
-            min-height: 100vh;
-            margin: 0;
-            font-family: 'Droid Sans Mono', monospace;
-            background: linear-gradient(to bottom right, #6a0dad, #9b30b0);
-            color: #e0e0e0;
-            animation: fadeIn 1s ease-out;
-            position: relative;
-        }
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="description" content="Photos from the VR Famo VRChat community."><meta name="theme-color" content="#160d24"><title>VRChat Pics | VR Famo</title><style>
+:root{--bg:#100a18;--surface:#191124;--surface-2:#21162e;--text:#f6f1fb;--muted:#c8bdd2;--accent:#b86cff;--accent-2:#ff6d8f;--border:rgba(255,255,255,.12);--shadow:0 18px 50px rgba(0,0,0,.28);--radius:18px;--wrap:1180px;color-scheme:dark}
+*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;font-family:Inter,ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;background:radial-gradient(circle at 20% 0%,rgba(184,108,255,.12),transparent 34rem),var(--bg);color:var(--text);line-height:1.6}a{color:inherit}img{max-width:100%}.wrap{width:min(calc(100% - 2rem),var(--wrap));margin-inline:auto}.skip-link{position:absolute;left:-9999px;top:1rem;background:#fff;color:#000;padding:.7rem 1rem;z-index:100;border-radius:.5rem}.skip-link:focus{left:1rem}.site-header{position:sticky;top:0;z-index:20;backdrop-filter:blur(16px);background:rgba(16,10,24,.82);border-bottom:1px solid var(--border)}.header-inner{min-height:72px;display:flex;align-items:center;justify-content:space-between;gap:1rem}.brand{display:flex;align-items:center;gap:.7rem;text-decoration:none;font-weight:800}.brand img{width:46px;height:46px;object-fit:contain;border-radius:12px}nav{display:flex;gap:.2rem;flex-wrap:wrap}nav a{text-decoration:none;color:var(--muted);padding:.55rem .7rem;border-radius:.65rem}nav a:hover,nav a:focus-visible{background:var(--surface-2);color:var(--text)}.hero{padding:clamp(3.5rem,8vw,6.5rem) 0 2.5rem}.eyebrow{text-transform:uppercase;letter-spacing:.16em;color:#d9b8ff;font-size:.78rem;font-weight:800;margin:0 0 .6rem}h1{font-size:clamp(2.8rem,8vw,5.5rem);line-height:.95;letter-spacing:-.055em;margin:.1em 0 .25em}.intro{max-width:65ch;color:var(--muted);font-size:clamp(1rem,2vw,1.18rem)}.actions{display:flex;gap:.75rem;flex-wrap:wrap;margin-top:1.25rem}.button{display:inline-flex;min-height:46px;align-items:center;justify-content:center;padding:.65rem 1rem;border-radius:12px;text-decoration:none;font-weight:800;border:1px solid var(--border)}.button.primary{background:linear-gradient(135deg,var(--accent),var(--accent-2));color:#140b1d;border:0}.gallery-section{padding:1rem 0 5rem}.gallery-head{display:flex;align-items:end;justify-content:space-between;gap:1rem;margin-bottom:1.2rem}.gallery-head h2{margin:0;font-size:clamp(1.7rem,4vw,2.5rem)}.gallery-head p{margin:0;color:var(--muted)}.gallery{columns:3 300px;column-gap:1rem}.photo-card{width:100%;display:inline-block;margin:0 0 1rem;padding:0;border:1px solid var(--border);border-radius:var(--radius);overflow:hidden;background:var(--surface);box-shadow:var(--shadow);color:var(--text);font:inherit;text-align:left;cursor:pointer;break-inside:avoid}.photo-card img{display:block;width:100%;height:auto;background:#0c0811}.photo-card span{display:block;padding:.8rem 1rem;color:var(--muted);font-size:.9rem}.photo-card:hover,.photo-card:focus-visible{transform:translateY(-2px);border-color:rgba(184,108,255,.65)}.modal{position:fixed;inset:0;z-index:1000;display:none;place-items:center;padding:1rem;background:rgba(5,3,8,.88);backdrop-filter:blur(12px)}.modal.open{display:grid}.modal-dialog{position:relative;width:min(100%,1200px);max-height:92vh;display:grid;grid-template-rows:minmax(0,1fr) auto;background:#0c0811;border:1px solid var(--border);border-radius:20px;overflow:hidden;box-shadow:0 25px 80px rgba(0,0,0,.6)}.modal-media{min-height:0;display:grid;place-items:center;background:#070509}.modal img{display:block;max-width:100%;max-height:78vh;object-fit:contain}.modal-caption{margin:0;padding:.85rem 4.5rem .85rem 1rem;color:var(--muted)}.icon-button{position:absolute;z-index:2;border:1px solid var(--border);background:rgba(20,12,30,.82);color:#fff;border-radius:999px;width:44px;height:44px;font-size:1.5rem;cursor:pointer;display:grid;place-items:center}.close{right:.75rem;top:.75rem}.prev,.next{top:50%;transform:translateY(-50%)}.prev{left:.75rem}.next{right:.75rem}.site-footer{border-top:1px solid var(--border);color:var(--muted)}.footer-inner{min-height:80px;display:flex;justify-content:space-between;align-items:center;gap:1rem}:focus-visible{outline:3px solid #f2b8ff;outline-offset:3px}@media(max-width:620px){.wrap{width:min(calc(100% - 1.2rem),var(--wrap))}.header-inner{align-items:flex-start;padding:.7rem 0;flex-direction:column}nav{width:100%;overflow-x:auto}.hero{padding-top:2.5rem}.gallery-head{align-items:flex-start;flex-direction:column}.actions .button{width:100%}.modal{padding:.5rem}.modal-caption{padding-right:1rem}.prev,.next{top:auto;bottom:.65rem;transform:none}.prev{left:.65rem}.next{right:.65rem}}@media(prefers-reduced-motion:reduce){*,*::before,*::after{scroll-behavior:auto!important;transition:none!important;animation:none!important}}
+</style></head>
+<body><a class="skip-link" href="#main">Skip to main content</a>
+<header class="site-header"><div class="wrap header-inner"><a class="brand" href="../" aria-label="VR Famo home"><img src="../vrf%20logo.png" alt="" width="46" height="46"><span>VR Famo</span></a><nav aria-label="Primary navigation"><a href="../">Home</a><a href="../#links">Links</a><a href="../#minecraft">Minecraft</a><a href="../FanArt/">Fan Art</a></nav></div></header>
+<main id="main"><section class="hero"><div class="wrap"><p class="eyebrow">Community gallery</p><h1>VRChat Pics</h1><p class="intro">Photos and memories from the VR Famo community in VRChat.</p><div class="actions"><a class="button primary" href="https://vrfamo.com/discord">Join us on Discord</a><a class="button" href="../">Back to VR Famo</a></div></div></section>
+<section class="gallery-section" aria-labelledby="gallery-title"><div class="wrap"><div class="gallery-head"><div><p class="eyebrow">Gallery</p><h2 id="gallery-title">Community photos</h2></div><p>19 photos currently on display</p></div><div class="gallery">
+<button
+    class="photo-card"
+    type="button"
+    data-img="VRC-Pics/VRChat_2025-10-12_22-17-43.350_1920x1080.png"
+    data-caption="Provided by Snowy"
+    aria-label="Open Provided by Snowy"
+>
+    <img
+        src="VRC-Pics/VRChat_2025-10-12_22-17-43.350_1920x1080.png"
+        alt="VRChat community photo - VRChat 2025 10 12 22 17 43.350 1920x1080"
+        loading="lazy"
+    >
+    <span>Provided by Snowy</span>
+</button>
 
-        @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(10px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
+<button
+    class="photo-card"
+    type="button"
+    data-img="VRC-Pics/VRChat_2025-12-17_22-31-08.681_1080x1920.png"
+    data-caption="Provided by Snowy"
+    aria-label="Open Provided by Snowy"
+>
+    <img
+        src="VRC-Pics/VRChat_2025-12-17_22-31-08.681_1080x1920.png"
+        alt="VRChat community photo - VRChat 2025 12 17 22 31 08.681 1080x1920"
+        loading="lazy"
+    >
+    <span>Provided by Snowy</span>
+</button>
 
-        #nav {
-            text-align: center;
-            padding: 20px 0;
-            background-color: #000000;
-            border-bottom: 2px solid #444;
-            z-index: 10;
-            position: relative;
-        }
+<button
+    class="photo-card"
+    type="button"
+    data-img="VRC-Pics/VRChat_2026-02-07_19-17-06.351_1080x1920.png"
+    data-caption="Provided by Snowy"
+    aria-label="Open Provided by Snowy"
+>
+    <img
+        src="VRC-Pics/VRChat_2026-02-07_19-17-06.351_1080x1920.png"
+        alt="VRChat community photo - VRChat 2026 02 07 19 17 06.351 1080x1920"
+        loading="lazy"
+    >
+    <span>Provided by Snowy</span>
+</button>
 
-        #nav img {
-            height: 200px;
-            width: auto;
-            margin-bottom: 10px;
-            animation: fadeIn 1.5s ease;
-        }
 
-        #nav p {
-            font-size: 120%;
-            color: #aaa;
-            margin: 5px 0;
-        }
+<button
+    class="photo-card"
+    type="button"
+    data-img="VRC-Pics/VRChat_2026-02-06_20-09-49.344_1280x720daz.png"
+    data-caption="Provided by Daz"
+    aria-label="Open Provided by Daz"
+>
+    <img
+        src="VRC-Pics/VRChat_2026-02-06_20-09-49.344_1280x720daz.png"
+        alt="VRChat community photo - VRChat 2026 02 06 20 09 49.344 1280x720daz"
+        loading="lazy"
+    >
+    <span>Provided by Daz</span>
+</button>
 
-        #nav h1 {
-            font-size: 3rem;
-            background: linear-gradient(90deg, #a8c0ff, #6a0dad);
-            -webkit-text-fill-color: transparent;
-            animation: textGlow 3s ease-in-out infinite;
-        }
+<button
+    class="photo-card"
+    type="button"
+    data-img="VRC-Pics/VRChat_2026-02-06_20-10-18.051_1280x720daz.png"
+    data-caption="Provided by Daz"
+    aria-label="Open Provided by Daz"
+>
+    <img
+        src="VRC-Pics/VRChat_2026-02-06_20-10-18.051_1280x720daz.png"
+        alt="VRChat community photo - VRChat 2026 02 06 20 10 18.051 1280x720daz"
+        loading="lazy"
+    >
+    <span>Provided by Daz</span>
+</button>
 
-        @keyframes textGlow {
-            0%, 100% { text-shadow: 0 0 5px #a8c0ff, 0 0 10px #6a0dad; }
-            50% { text-shadow: 0 0 15px #a8c0ff, 0 0 30px #6a0dad; }
-        }
+<button
+    class="photo-card"
+    type="button"
+    data-img="VRC-Pics/VRChat_2026-02-06_20-11-12.716_1280x720daz.png"
+    data-caption="Provided by Daz"
+    aria-label="Open Provided by Daz"
+>
+    <img
+        src="VRC-Pics/VRChat_2026-02-06_20-11-12.716_1280x720daz.png"
+        alt="VRChat community photo - VRChat 2026 02 06 20 11 12.716 1280x720daz"
+        loading="lazy"
+    >
+    <span>Provided by Daz</span>
+</button>
 
-        .main {
-            max-width: 900px;
-            margin: 40px auto;
-            padding: 0 20px;
-            animation: fadeIn 1.3s ease-out;
-            z-index: 10;
-            text-align: center
-        }
+<button
+    class="photo-card"
+    type="button"
+    data-img="VRC-Pics/VRChat_2026-02-07_19-17-06.351_1080x1920.png"
+    data-caption="Provided by Mocha"
+    aria-label="Open Provided by Mocha"
+>
+    <img
+        src="VRC-Pics/VRChat_2026-02-07_19-17-06.351_1080x1920.png"
+        alt="VRChat community photo - VRChat 2026 02 07 19 17 06.351 1080x1920"
+        loading="lazy"
+    >
+    <span>Provided by Mocha</span>
+</button>
 
-        .main h1 {
-            text-decoration: underline;
-            margin-bottom: 15px;
-            z-index: 10;
-        }
+<button
+    class="photo-card"
+    type="button"
+    data-img="VRC-Pics/VRChat_2026-03-09_23-17-09.904_1920x1080.png"
+    data-caption="Provided by Mocha"
+    aria-label="Open Provided by Mocha"
+>
+    <img
+        src="VRC-Pics/VRChat_2026-03-09_23-17-09.904_1920x1080.png"
+        alt="VRChat community photo - VRChat 2026 03 09 23 17 09.904 1920x1080"
+        loading="lazy"
+    >
+    <span>Provided by Mocha</span>
+</button>
 
-        .main p {
-            font-size: 18px;
-            line-height: 1.6;
-            z-index: 10;
-        }
+<button
+    class="photo-card"
+    type="button"
+    data-img="VRC-Pics/VRChat_2026-03-16_22-49-33.024_1080x1920.png"
+    data-caption="Provided by Mocha"
+    aria-label="Open Provided by Mocha"
+>
+    <img
+        src="VRC-Pics/VRChat_2026-03-16_22-49-33.024_1080x1920.png"
+        alt="VRChat community photo - VRChat 2026 03 16 22 49 33.024 1080x1920"
+        loading="lazy"
+    >
+    <span>Provided by Mocha</span>
+</button>
 
-        #particlesCanvas {
-            pointer-events: none;
-            position: absolute;
-            top: 0;
-            left: 0;
-            z-index: 0;
-        }
+<button
+    class="photo-card"
+    type="button"
+    data-img="VRC-Pics/VRChat_2026-03-16_22-51-50.860_1080x1920.png"
+    data-caption="Provided by Mocha"
+    aria-label="Open Provided by Mocha"
+>
+    <img
+        src="VRC-Pics/VRChat_2026-03-16_22-51-50.860_1080x1920.png"
+        alt="VRChat community photo - VRChat 2026 03 16 22 51 50.860 1080x1920"
+        loading="lazy"
+    >
+    <span>Provided by Mocha</span>
+</button>
 
-        .photo-showcase {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
-            gap: 28px;
-            justify-items: center;
-            align-items: start;
-            margin: 40px auto 60px auto;
-            max-width: 1100px;
-            z-index: 10;
-        }
+<button
+    class="photo-card"
+    type="button"
+    data-img="VRC-Pics/VRChat_2026-04-17_19-16-17.365_1920x1080.png"
+    data-caption="Provided by Mocha"
+    aria-label="Open Provided by Mocha"
+>
+    <img
+        src="VRC-Pics/VRChat_2026-04-17_19-16-17.365_1920x1080.png"
+        alt="VRChat community photo - VRChat 2026 04 17 19 16 17.365 1920x1080"
+        loading="lazy"
+    >
+    <span>Provided by Mocha</span>
+</button>
 
-        @media (max-width: 1200px) {
-            .photo-showcase {
-                grid-template-columns: repeat(3, 1fr);
-            }
-        }
-        @media (max-width: 800px) {
-            .photo-showcase {
-                grid-template-columns: repeat(2, 1fr);
-            }
-        }
-        @media (max-width: 600px) {
-            .photo-showcase {
-                gap: 8px;
-                grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
-                width: 100vw;
-                margin: 0 auto 24px auto;
-                box-sizing: border-box;
-                padding-left: 0;
-                padding-right: 0;
-            }
-        }
+<button
+    class="photo-card"
+    type="button"
+    data-img="VRC-Pics/VRChat_2026-04-17_19-18-05.037_1920x1080.png"
+    data-caption="Provided by Mocha"
+    aria-label="Open Provided by Mocha"
+>
+    <img
+        src="VRC-Pics/VRChat_2026-04-17_19-18-05.037_1920x1080.png"
+        alt="VRChat community photo - VRChat 2026 04 17 19 18 05.037 1920x1080"
+        loading="lazy"
+    >
+    <span>Provided by Mocha</span>
+</button>
 
-        .photo-item {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            background: #222;
-            border-radius: 16px;
-            box-shadow: 0 4px 24px rgba(106, 13, 173, 0.25), 0 1.5px 8px #a020f0;
-            overflow: hidden;
-            max-width: 180px;
-            width: 100%;
-            cursor: pointer;
-            transition: box-shadow 0.2s;
-        }
+<button
+    class="photo-card"
+    type="button"
+    data-img="VRC-Pics/VRChat_2026-04-17_19-43-43.282_1920x1080.png"
+    data-caption="Provided by Mocha"
+    aria-label="Open Provided by Mocha"
+>
+    <img
+        src="VRC-Pics/VRChat_2026-04-17_19-43-43.282_1920x1080.png"
+        alt="VRChat community photo - VRChat 2026 04 17 19 43 43.282 1920x1080"
+        loading="lazy"
+    >
+    <span>Provided by Mocha</span>
+</button>
 
-        .photo-item:hover {
-            box-shadow: 0 8px 32px #a020f0, 0 2px 12px #d580ff;
-        }
+<button
+    class="photo-card"
+    type="button"
+    data-img="VRC-Pics/VRChat_2026-04-17_20-08-10.041_1920x1080.png"
+    data-caption="Provided by Mocha"
+    aria-label="Open Provided by Mocha"
+>
+    <img
+        src="VRC-Pics/VRChat_2026-04-17_20-08-10.041_1920x1080.png"
+        alt="VRChat community photo - VRChat 2026 04 17 20 08 10.041 1920x1080"
+        loading="lazy"
+    >
+    <span>Provided by Mocha</span>
+</button>
 
-        .photo-item img {
-            width: 100%;
-            max-width: 180px;
-            max-height: 140px;
-            object-fit: cover;
-            display: block;
-            background: #222;
-            transition: transform 0.2s;
-        }
+<button
+    class="photo-card"
+    type="button"
+    data-img="VRC-Pics/VRChat_2026-04-17_20-11-31.801_1920x1080.png"
+    data-caption="Provided by Mocha"
+    aria-label="Open Provided by Mocha"
+>
+    <img
+        src="VRC-Pics/VRChat_2026-04-17_20-11-31.801_1920x1080.png"
+        alt="VRChat community photo - VRChat 2026 04 17 20 11 31.801 1920x1080"
+        loading="lazy"
+    >
+    <span>Provided by Mocha</span>
+</button>
 
-        .photo-caption {
-            width: 100%;
-            background: rgba(30, 0, 50, 0.85);
-            color: #fff;
-            font-weight: bold;
-            font-size: 1rem;
-            text-align: center;
-            padding: 10px 6px 8px 6px;
-            letter-spacing: 0.5px;
-            text-shadow: 0 2px 8px #000, 0 0 2px #a020f0;
-            box-sizing: border-box;
-            border-top: 1px solid #a020f0;
-            user-select: text;
-        }
+<button
+    class="photo-card"
+    type="button"
+    data-img="VRC-Pics/VRChat_2026-04-17_20-29-06.518_1920x1080.png"
+    data-caption="Provided by Mocha"
+    aria-label="Open Provided by Mocha"
+>
+    <img
+        src="VRC-Pics/VRChat_2026-04-17_20-29-06.518_1920x1080.png"
+        alt="VRChat community photo - VRChat 2026 04 17 20 29 06.518 1920x1080"
+        loading="lazy"
+    >
+    <span>Provided by Mocha</span>
+</button>
 
-        .photo-modal {
-            display: none;
-            position: fixed;
-            z-index: 1000;
-            left: 0; top: 0;
-            width: 100vw; height: 100vh;
-            background: rgba(30,0,50,0.92);
-            justify-content: center;
-            align-items: center;
-            flex-direction: column;
-        }
+<button
+    class="photo-card"
+    type="button"
+    data-img="VRC-Pics/VRChat_2026-04-17_20-30-33.994_1920x1080.png"
+    data-caption="Provided by Mocha"
+    aria-label="Open Provided by Mocha"
+>
+    <img
+        src="VRC-Pics/VRChat_2026-04-17_20-30-33.994_1920x1080.png"
+        alt="VRChat community photo - VRChat 2026 04 17 20 30 33.994 1920x1080"
+        loading="lazy"
+    >
+    <span>Provided by Mocha</span>
+</button>
 
-        .photo-modal.active {
-            display: flex;
-        }
+<button
+    class="photo-card"
+    type="button"
+    data-img="VRC-Pics/VRChat_2026-04-17_20-34-06.155_1920x1080.png"
+    data-caption="Provided by Mocha"
+    aria-label="Open Provided by Mocha"
+>
+    <img
+        src="VRC-Pics/VRChat_2026-04-17_20-34-06.155_1920x1080.png"
+        alt="VRChat community photo - VRChat 2026 04 17 20 34 06.155 1920x1080"
+        loading="lazy"
+    >
+    <span>Provided by Mocha</span>
+</button>
 
-        .photo-modal-img-wrap {
-            position: relative;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            width: fit-content;
-            margin: 0 auto;
-        }
+<button
+    class="photo-card"
+    type="button"
+    data-img="VRC-Pics/VRChat_2026-04-17_20-37-31.941_3840x2160.png"
+    data-caption="Provided by Mocha"
+    aria-label="Open Provided by Mocha"
+>
+    <img
+        src="VRC-Pics/VRChat_2026-04-17_20-37-31.941_3840x2160.png"
+        alt="VRChat community photo - VRChat 2026 04 17 20 37 31.941 3840x2160"
+        loading="lazy"
+    >
+    <span>Provided by Mocha</span>
+</button>
 
-        .photo-modal-img {
-            display: block;
-            max-width: 90vw;
-            max-height: 80vh;
-            border-radius: 18px;
-            box-shadow: 0 8px 32px #a020f0, 0 2px 12px #d580ff;
-            background: #222;
-        }
+<button
+    class="photo-card"
+    type="button"
+    data-img="VRC-Pics/VRChat_2026-04-17_20-43-53.812_3840x2160.png"
+    data-caption="Provided by Mocha"
+    aria-label="Open Provided by Mocha"
+>
+    <img
+        src="VRC-Pics/VRChat_2026-04-17_20-43-53.812_3840x2160.png"
+        alt="VRChat community photo - VRChat 2026 04 17 20 43 53.812 3840x2160"
+        loading="lazy"
+    >
+    <span>Provided by Mocha</span>
+</button>
 
-        .photo-modal-caption {
-            margin-top: 18px;
-            color: #fff;
-            font-size: 1.2rem;
-            font-weight: bold;
-            text-align: center;
-            text-shadow: 0 2px 8px #000, 0 0 2px #a020f0;
-            background: rgba(30,0,50,0.85);
-            padding: 10px 20px;
-            border-radius: 10px;
-            border: 1px solid #a020f0;
-        }
+<button
+    class="photo-card"
+    type="button"
+    data-img="VRC-Pics/VRChat_2026-04-17_20-46-29.314_3840x2160.png"
+    data-caption="Provided by Mocha"
+    aria-label="Open Provided by Mocha"
+>
+    <img
+        src="VRC-Pics/VRChat_2026-04-17_20-46-29.314_3840x2160.png"
+        alt="VRChat community photo - VRChat 2026 04 17 20 46 29.314 3840x2160"
+        loading="lazy"
+    >
+    <span>Provided by Mocha</span>
+</button>
 
-        .photo-modal-close {
-            position: absolute;
-            top: 24px;
-            right: 36px;
-            font-size: 2.5rem;
-            color: #fff;
-            cursor: pointer;
-            background: none;
-            border: none;
-            z-index: 1001;
-            text-shadow: 0 2px 8px #000, 0 0 2px #a020f0;
-        }
+<button
+    class="photo-card"
+    type="button"
+    data-img="VRC-Pics/VRChat_2026-04-17_20-47-23.916_3840x2160.png"
+    data-caption="Provided by Mocha"
+    aria-label="Open Provided by Mocha"
+>
+    <img
+        src="VRC-Pics/VRChat_2026-04-17_20-47-23.916_3840x2160.png"
+        alt="VRChat community photo - VRChat 2026 04 17 20 47 23.916 3840x2160"
+        loading="lazy"
+    >
+    <span>Provided by Mocha</span>
+</button>
 
-        .photo-modal-prev,
-        .photo-modal-next {
-            position: absolute;
-            top: 50%;
-            transform: translateY(-50%);
-            font-size: 2.5rem;
-            color: #fff;
-            background: rgba(30,0,50,0.7);
-            border: none;
-            border-radius: 50%;
-            width: 44px;
-            height: 44px;
-            cursor: pointer;
-            z-index: 1002;
-            text-shadow: 0 2px 8px #000, 0 0 2px #a020f0;
-            transition: background 0.2s;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            padding: 0;
-        }
-        .photo-modal-prev { left: -28px; }
-        .photo-modal-next { right: -28px; }
-        .photo-modal-prev:hover,
-        .photo-modal-next:hover { background: #a020f0; }
+<button
+    class="photo-card"
+    type="button"
+    data-img="VRC-Pics/VRChat_2026-06-13_19-41-24.909_7680x4320.png"
+    data-caption="Provided by Mocha"
+    aria-label="Open Provided by Mocha"
+>
+    <img
+        src="VRC-Pics/VRChat_2026-06-13_19-41-24.909_7680x4320.png"
+        alt="VRChat community photo - VRChat 2026 06 13 19 41 24.909 7680x4320"
+        loading="lazy"
+    >
+    <span>Provided by Mocha</span>
+</button>
 
-        @media (max-width: 600px) {
-            .photo-modal-prev, .photo-modal-next {
-                width: 36px;
-                height: 36px;
-                font-size: 2rem;
-                left: -20px;
-                right: -20px;
-            }
-            .photo-modal-prev { left: -20px; }
-            .photo-modal-next { right: -20px; }
-        }
-    </style>
-</head>
-<body>
-    <canvas id="particlesCanvas"></canvas>
+<button
+    class="photo-card"
+    type="button"
+    data-img="VRC-Pics/VRChat_2026-06-13_19-50-14.174_7680x4320.png"
+    data-caption="Provided by Mocha"
+    aria-label="Open Provided by Mocha"
+>
+    <img
+        src="VRC-Pics/VRChat_2026-06-13_19-50-14.174_7680x4320.png"
+        alt="VRChat community photo - VRChat 2026 06 13 19 50 14.174 7680x4320"
+        loading="lazy"
+    >
+    <span>Provided by Mocha</span>
+</button>
 
-    <div id="nav">
-        <a href="https://vrfamo.com">
-            <img src="logo.jpg" alt="VRFamo Logo">
-        </a>
-    </div>
+<button
+    class="photo-card"
+    type="button"
+    data-img="VRC-Pics/VRChat_2026-06-13_20-00-19.069_7680x4320.png"
+    data-caption="Provided by Mocha"
+    aria-label="Open Provided by Mocha"
+>
+    <img
+        src="VRC-Pics/VRChat_2026-06-13_20-00-19.069_7680x4320.png"
+        alt="VRChat community photo - VRChat 2026 06 13 20 00 19.069 7680x4320"
+        loading="lazy"
+    >
+    <span>Provided by Mocha</span>
+</button>
 
-    <div class="main">
-        <h1>VRChat Photos</h1>
-        <p>Welcome to the VR-Famo VRChat Photo Gallery! Here you can find some of the amazing photos taken by our community members inside VRChat.<br>
-        If you have photos you'd like to share, please contact us through our Discord server.</p>
-    </div>
-    <!-- note to self add more from here -->
-    <div class="photo-showcase">
-        <div class="photo-item" data-img="VRC-Pics/VRChat_2025-05-10_21-21-24.555_1920x1080.png" data-caption="Taken by Snowy">
-            <img src="VRC-Pics/VRChat_2025-05-10_21-21-24.555_1920x1080.png" alt="VRChat Photo VRChat_2025-05-10_21-21-24.555_1920x1080">
-            <div class="photo-caption">Taken by Snowy</div>
-        </div>
+<button
+    class="photo-card"
+    type="button"
+    data-img="VRC-Pics/VRChat_2026-06-13_20-05-30.929_7680x4320.png"
+    data-caption="Provided by Mocha"
+    aria-label="Open Provided by Mocha"
+>
+    <img
+        src="VRC-Pics/VRChat_2026-06-13_20-05-30.929_7680x4320.png"
+        alt="VRChat community photo - VRChat 2026 06 13 20 05 30.929 7680x4320"
+        loading="lazy"
+    >
+    <span>Provided by Mocha</span>
+</button>
 
-        <div class="photo-item" data-img="VRC-Pics/VRChat_2025-05-10_21-22-28.920_1920x1080.png" data-caption="Taken by Snowy">
-            <img src="VRC-Pics/VRChat_2025-05-10_21-22-28.920_1920x1080.png" alt="VRChat Photo VRChat_2025-05-10_21-22-28.920_1920x1080">
-            <div class="photo-caption">Taken by Snowy</div>
-        </div>
+<button
+    class="photo-card"
+    type="button"
+    data-img="VRC-Pics/VRChat_2026-06-13_20-08-28.602_7680x4320.png"
+    data-caption="Provided by Mocha"
+    aria-label="Open Provided by Mocha"
+>
+    <img
+        src="VRC-Pics/VRChat_2026-06-13_20-08-28.602_7680x4320.png"
+        alt="VRChat community photo - VRChat 2026 06 13 20 08 28.602 7680x4320"
+        loading="lazy"
+    >
+    <span>Provided by Mocha</span>
+</button>
 
-        <div class="photo-item" data-img="VRC-Pics/VRChat_2025-05-10_21-35-12.490_1920x1080.png" data-caption="Taken by Snowy">
-            <img src="VRC-Pics/VRChat_2025-05-10_21-35-12.490_1920x1080.png" alt="VRChat Photo VRChat_2025-05-10_21-35-12.490_1920x1080">
-            <div class="photo-caption">Taken by Snowy</div>
-        </div>
-        <div class="photo-item" data-img="VRC-Pics/VRChat_2025-05-10_21-24-16.463_1920x1080_101556.png" data-caption="Provided by Sassy">
-            <img src="VRC-Pics/VRChat_2025-05-10_21-24-16.463_1920x1080_101556.png" alt="VRChat Photo VRChat_2025-05-10_21-24-16.463_1920x1080_101556">
-            <div class="photo-caption">Provided by Sassy</div>
-        </div>
+<button
+    class="photo-card"
+    type="button"
+    data-img="VRC-Pics/VRChat_2026-06-13_20-09-30.692_7680x4320.png"
+    data-caption="Provided by Mocha"
+    aria-label="Open Provided by Mocha"
+>
+    <img
+        src="VRC-Pics/VRChat_2026-06-13_20-09-30.692_7680x4320.png"
+        alt="VRChat community photo - VRChat 2026 06 13 20 09 30.692 7680x4320"
+        loading="lazy"
+    >
+    <span>Provided by Mocha</span>
+</button>
 
-        <div class="photo-item" data-img="VRC-Pics/VRChat_2025-05-10_21-34-29.292_1920x1080_101909.png" data-caption="Provided by Sassy">
-            <img src="VRC-Pics/VRChat_2025-05-10_21-34-29.292_1920x1080_101909.png" alt="VRChat Photo VRChat_2025-05-10_21-34-29.292_1920x1080_101909">
-            <div class="photo-caption">Provided by Sassy</div>
-        </div>
+<button
+    class="photo-card"
+    type="button"
+    data-img="VRC-Pics/VRChat_2026-06-13_20-18-53.406_7680x4320.png"
+    data-caption="Provided by Mocha"
+    aria-label="Open Provided by Mocha"
+>
+    <img
+        src="VRC-Pics/VRChat_2026-06-13_20-18-53.406_7680x4320.png"
+        alt="VRChat community photo - VRChat 2026 06 13 20 18 53.406 7680x4320"
+        loading="lazy"
+    >
+    <span>Provided by Mocha</span>
+</button>
 
-        <div class="photo-item" data-img="VRC-Pics/VRChat_2025-05-10_21-44-22.853_1920x1080_102223.png" data-caption="Provided by Sassy">
-            <img src="VRC-Pics/VRChat_2025-05-10_21-44-22.853_1920x1080_102223.png" alt="VRChat Photo VRChat_2025-05-10_21-44-22.853_1920x1080_102223">
-            <div class="photo-caption">Provided by Sassy</div>
-        </div>
+<button
+    class="photo-card"
+    type="button"
+    data-img="VRC-Pics/VRChat_2026-06-13_20-23-46.404_7680x4320.png"
+    data-caption="Provided by Mocha"
+    aria-label="Open Provided by Mocha"
+>
+    <img
+        src="VRC-Pics/VRChat_2026-06-13_20-23-46.404_7680x4320.png"
+        alt="VRChat community photo - VRChat 2026 06 13 20 23 46.404 7680x4320"
+        loading="lazy"
+    >
+    <span>Provided by Mocha</span>
+</button>
 
-        <div class="photo-item" data-img="VRC-Pics/VRChat_2025-05-12_18-55-42.012_1920x1080_123759.png" data-caption="Provided by Sassy">
-            <img src="VRC-Pics/VRChat_2025-05-12_18-55-42.012_1920x1080_123759.png" alt="VRChat Photo VRChat_2025-05-12_18-55-42.012_1920x1080_123759">
-            <div class="photo-caption">Provided by Sassy</div>
-        </div>
+<button
+    class="photo-card"
+    type="button"
+    data-img="VRC-Pics/VRChat_2026-06-13_20-26-10.391_7680x4320.png"
+    data-caption="Provided by Mocha"
+    aria-label="Open Provided by Mocha"
+>
+    <img
+        src="VRC-Pics/VRChat_2026-06-13_20-26-10.391_7680x4320.png"
+        alt="VRChat community photo - VRChat 2026 06 13 20 26 10.391 7680x4320"
+        loading="lazy"
+    >
+    <span>Provided by Mocha</span>
+</button>
 
-        <div class="photo-item" data-img="VRC-Pics/VRChat_2025-05-18_21-25-54.833_1920x1080.png" data-caption="Provided by Sassy">
-            <img src="VRC-Pics/VRChat_2025-05-18_21-25-54.833_1920x1080.png" alt="VRChat Photo VRChat_2025-05-18_21-25-54.833_1920x1080">
-            <div class="photo-caption">Provided by Sassy</div>
-        </div>
+<button
+    class="photo-card"
+    type="button"
+    data-img="VRC-Pics/VRChat_2026-06-13_20-28-54.119_7680x4320.png"
+    data-caption="Provided by Mocha"
+    aria-label="Open Provided by Mocha"
+>
+    <img
+        src="VRC-Pics/VRChat_2026-06-13_20-28-54.119_7680x4320.png"
+        alt="VRChat community photo - VRChat 2026 06 13 20 28 54.119 7680x4320"
+        loading="lazy"
+    >
+    <span>Provided by Mocha</span>
+</button>
 
-        <div class="photo-item" data-img="VRC-Pics/VRChat_2025-05-20_18-15-25.497_1920x1080.png" data-caption="Provided by Sassy">
-            <img src="VRC-Pics/VRChat_2025-05-20_18-15-25.497_1920x1080.png" alt="VRChat Photo VRChat_2025-05-20_18-15-25.497_1920x1080">
-            <div class="photo-caption">Provided by Sassy</div>
-        </div>
+<button
+    class="photo-card"
+    type="button"
+    data-img="VRC-Pics/VRChat_2026-06-13_20-31-44.403_7680x4320.png"
+    data-caption="Provided by Mocha"
+    aria-label="Open Provided by Mocha"
+>
+    <img
+        src="VRC-Pics/VRChat_2026-06-13_20-31-44.403_7680x4320.png"
+        alt="VRChat community photo - VRChat 2026 06 13 20 31 44.403 7680x4320"
+        loading="lazy"
+    >
+    <span>Provided by Mocha</span>
+</button>
 
-        <div class="photo-item" data-img="VRC-Pics/VRChat_2025-06-26_21-04-22.494_1920x1080.png" data-caption="Provided by Sassy">
-            <img src="VRC-Pics/VRChat_2025-06-26_21-04-22.494_1920x1080.png" alt="VRChat Photo VRChat_2025-06-26_21-04-22.494_1920x1080">
-            <div class="photo-caption">Provided by Sassy</div>
-        </div>
+<button
+    class="photo-card"
+    type="button"
+    data-img="VRC-Pics/VRChat_2026-06-13_20-40-02.383_7680x4320.png"
+    data-caption="Provided by Mocha"
+    aria-label="Open Provided by Mocha"
+>
+    <img
+        src="VRC-Pics/VRChat_2026-06-13_20-40-02.383_7680x4320.png"
+        alt="VRChat community photo - VRChat 2026 06 13 20 40 02.383 7680x4320"
+        loading="lazy"
+    >
+    <span>Provided by Mocha</span>
+</button>
 
-        <div class="photo-item" data-img="VRC-Pics/VRChat_2025-06-28_18-29-30.805_1920x1080.png" data-caption="Provided by Sassy">
-            <img src="VRC-Pics/VRChat_2025-06-28_18-29-30.805_1920x1080.png" alt="VRChat Photo VRChat_2025-06-28_18-29-30.805_1920x1080">
-            <div class="photo-caption">Provided by Sassy</div>
-        </div>
+<button
+    class="photo-card"
+    type="button"
+    data-img="VRC-Pics/VRChat_2026-06-13_21-01-57.165_7680x4320.png"
+    data-caption="Provided by Mocha"
+    aria-label="Open Provided by Mocha"
+>
+    <img
+        src="VRC-Pics/VRChat_2026-06-13_21-01-57.165_7680x4320.png"
+        alt="VRChat community photo - VRChat 2026 06 13 21 01 57.165 7680x4320"
+        loading="lazy"
+    >
+    <span>Provided by Mocha</span>
+</button>
 
-        <div class="photo-item" data-img="VRC-Pics/VRChat_2025-06-29_20-03-57.095_1920x1080.png" data-caption="Provided by Sassy">
-            <img src="VRC-Pics/VRChat_2025-06-29_20-03-57.095_1920x1080.png" alt="VRChat Photo VRChat_2025-06-29_20-03-57.095_1920x1080">
-            <div class="photo-caption">Provided by Sassy</div>
-        </div>
+<button
+    class="photo-card"
+    type="button"
+    data-img="VRC-Pics/VRChat_2026-07-25_19-32-34.753_7680x4320.png"
+    data-caption="Provided by Mocha"
+    aria-label="Open Provided by Mocha"
+>
+    <img
+        src="VRC-Pics/VRChat_2026-07-25_19-32-34.753_7680x4320.png"
+        alt="VRChat community photo - VRChat 2026 07 25 19 32 34.753 7680x4320"
+        loading="lazy"
+    >
+    <span>Provided by Mocha</span>
+</button>
 
-        <div class="photo-item" data-img="VRC-Pics/VRChat_2025-06-30_21-00-32.470_1920x1080.png" data-caption="Provided by Sassy">
-            <img src="VRC-Pics/VRChat_2025-06-30_21-00-32.470_1920x1080.png" alt="VRChat Photo VRChat_2025-06-30_21-00-32.470_1920x1080">
-            <div class="photo-caption">Provided by Sassy</div>
-        </div>
+<button
+    class="photo-card"
+    type="button"
+    data-img="VRC-Pics/VRChat_2026-07-25_19-39-49.303_7680x4320.png"
+    data-caption="Provided by Mocha"
+    aria-label="Open Provided by Mocha"
+>
+    <img
+        src="VRC-Pics/VRChat_2026-07-25_19-39-49.303_7680x4320.png"
+        alt="VRChat community photo - VRChat 2026 07 25 19 39 49.303 7680x4320"
+        loading="lazy"
+    >
+    <span>Provided by Mocha</span>
+</button>
 
-        <div class="photo-item" data-img="VRC-Pics/VRChat_2025-07-03_19-43-15.895_1080x1920.png" data-caption="Provided by Sassy">
-            <img src="VRC-Pics/VRChat_2025-07-03_19-43-15.895_1080x1920.png" alt="VRChat Photo VRChat_2025-07-03_19-43-15.895_1080x1920">
-            <div class="photo-caption">Provided by Sassy</div>
-        </div>
+<button
+    class="photo-card"
+    type="button"
+    data-img="VRC-Pics/VRChat_2026-07-25_20-35-02.022_7680x4320.png"
+    data-caption="Provided by Mocha"
+    aria-label="Open Provided by Mocha"
+>
+    <img
+        src="VRC-Pics/VRChat_2026-07-25_20-35-02.022_7680x4320.png"
+        alt="VRChat community photo - VRChat 2026 07 25 20 35 02.022 7680x4320"
+        loading="lazy"
+    >
+    <span>Provided by Mocha</span>
+</button>
 
-        <div class="photo-item" data-img="VRC-Pics/VRChat_2025-07-05_12-17-11.284_1920x1080.png" data-caption="Provided by Sassy">
-            <img src="VRC-Pics/VRChat_2025-07-05_12-17-11.284_1920x1080.png" alt="VRChat Photo VRChat_2025-07-05_12-17-11.284_1920x1080">
-            <div class="photo-caption">Provided by Sassy</div>
-        </div>
+<button
+    class="photo-card"
+    type="button"
+    data-img="VRC-Pics/VRChat_2026-07-25_20-45-47.575_7680x4320.png"
+    data-caption="Provided by Mocha"
+    aria-label="Open Provided by Mocha"
+>
+    <img
+        src="VRC-Pics/VRChat_2026-07-25_20-45-47.575_7680x4320.png"
+        alt="VRChat community photo - VRChat 2026 07 25 20 45 47.575 7680x4320"
+        loading="lazy"
+    >
+    <span>Provided by Mocha</span>
+</button>
 
-        <div class="photo-item" data-img="VRC-Pics/VRChat_2025-07-05_13-33-33.452_1080x1920.png" data-caption="Provided by Sassy">
-            <img src="VRC-Pics/VRChat_2025-07-05_13-33-33.452_1080x1920.png" alt="VRChat Photo VRChat_2025-07-05_13-33-33.452_1080x1920">
-            <div class="photo-caption">Provided by Sassy</div>
-        </div>
+<button
+    class="photo-card"
+    type="button"
+    data-img="VRC-Pics/VRChat_2026-07-25_20-47-03.347_7680x4320.png"
+    data-caption="Provided by Mocha"
+    aria-label="Open Provided by Mocha"
+>
+    <img
+        src="VRC-Pics/VRChat_2026-07-25_20-47-03.347_7680x4320.png"
+        alt="VRChat community photo - VRChat 2026 07 25 20 47 03.347 7680x4320"
+        loading="lazy"
+    >
+    <span>Provided by Mocha</span>
+</button>
 
-        <div class="photo-item" data-img="VRC-Pics/VRChat_2025-07-13_18-38-44.218_1920x1080.png" data-caption="Provided by Sassy">
-            <img src="VRC-Pics/VRChat_2025-07-13_18-38-44.218_1920x1080.png" alt="VRChat Photo VRChat_2025-07-13_18-38-44.218_1920x1080">
-            <div class="photo-caption">Provided by Sassy</div>
-        </div>
+<button
+    class="photo-card"
+    type="button"
+    data-img="VRC-Pics/VRChat_2026-07-25_20-47-42.079_7680x4320.png"
+    data-caption="Provided by Mocha"
+    aria-label="Open Provided by Mocha"
+>
+    <img
+        src="VRC-Pics/VRChat_2026-07-25_20-47-42.079_7680x4320.png"
+        alt="VRChat community photo - VRChat 2026 07 25 20 47 42.079 7680x4320"
+        loading="lazy"
+    >
+    <span>Provided by Mocha</span>
+</button>
 
-        <div class="photo-item" data-img="VRC-Pics/VRChat_2025-07-13_18-38-54.299_1920x1080.png" data-caption="Provided by Sassy">
-            <img src="VRC-Pics/VRChat_2025-07-13_18-38-54.299_1920x1080.png" alt="VRChat Photo VRChat_2025-07-13_18-38-54.299_1920x1080">
-            <div class="photo-caption">Provided by Sassy</div>
-        </div>
-    </div>
+<button
+    class="photo-card"
+    type="button"
+    data-img="VRC-Pics/VRChat_2026-07-25_20-48-52.732_7680x4320.png"
+    data-caption="Provided by Mocha"
+    aria-label="Open Provided by Mocha"
+>
+    <img
+        src="VRC-Pics/VRChat_2026-07-25_20-48-52.732_7680x4320.png"
+        alt="VRChat community photo - VRChat 2026 07 25 20 48 52.732 7680x4320"
+        loading="lazy"
+    >
+    <span>Provided by Mocha</span>
+</button>
 
-    <!-- note to self dont't add more past here -->
-    <div class="photo-modal" id="photoModal">
-        <button class="photo-modal-close" id="photoModalClose" aria-label="Close">&times;</button>
-        <div class="photo-modal-img-wrap">
-            <button class="photo-modal-prev" id="photoModalPrev" aria-label="Previous">&lt;</button>
-            <img class="photo-modal-img" id="photoModalImg" src="" alt="VRChat Photo Large">
-            <button class="photo-modal-next" id="photoModalNext" aria-label="Next">&gt;</button>
-        </div>
-        <div class="photo-modal-caption" id="photoModalCaption"></div>
-    </div>
+<button
+    class="photo-card"
+    type="button"
+    data-img="VRC-Pics/VRChat_2026-07-25_20-52-34.636_7680x4320.png"
+    data-caption="Provided by Mocha"
+    aria-label="Open Provided by Mocha"
+>
+    <img
+        src="VRC-Pics/VRChat_2026-07-25_20-52-34.636_7680x4320.png"
+        alt="VRChat community photo - VRChat 2026 07 25 20 52 34.636 7680x4320"
+        loading="lazy"
+    >
+    <span>Provided by Mocha</span>
+</button>
 
-    <script>
-        document.addEventListener("DOMContentLoaded", function () {
-            const canvas = document.getElementById("particlesCanvas");
-            const ctx = canvas.getContext("2d");
-
-            canvas.width = window.innerWidth;
-            canvas.height = window.innerHeight;
-
-            let particles = [];
-
-            class Particle {
-                constructor(x, y) {
-                    this.x = x;
-                    this.y = y;
-                    this.size = Math.random() * 3 + 1;
-                    this.speedX = Math.random() * 3 - 1.5;
-                    this.speedY = Math.random() * 3 - 1.5;
-                    this.color = "rgba(156, 79, 185, 0.8)";
-                }
-
-                update() {
-                    this.x += this.speedX;
-                    this.y += this.speedY;
-                    if (this.x > canvas.width) this.x = 0;
-                    if (this.x < 0) this.x = canvas.width;
-                    if (this.y > canvas.height) this.y = 0;
-                    if (this.y < 0) this.y = canvas.height;
-                }
-
-                draw() {
-                    ctx.fillStyle = this.color;
-                    ctx.beginPath();
-                    ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
-                    ctx.fill();
-                }
-            }
-
-            function createParticles(num) {
-                for (let i = 0; i < num; i++) {
-                    const x = Math.random() * canvas.width;
-                    const y = Math.random() * canvas.height;
-                    particles.push(new Particle(x, y));
-                }
-            }
-
-            function animateParticles() {
-                ctx.clearRect(0, 0, canvas.width, canvas.height);
-                for (let i = 0; i < particles.length; i++) {
-                    particles[i].update();
-                    particles[i].draw();
-                }
-                requestAnimationFrame(animateParticles);
-            }
-
-            createParticles(100);
-            animateParticles();
-
-            window.addEventListener("resize", function () {
-                canvas.width = window.innerWidth;
-                canvas.height = window.innerHeight;
-            });
-
-            
-            const modal = document.getElementById('photoModal');
-            const modalImg = document.getElementById('photoModalImg');
-            const modalCaption = document.getElementById('photoModalCaption');
-            const modalClose = document.getElementById('photoModalClose');
-            const modalPrev = document.getElementById('photoModalPrev');
-            const modalNext = document.getElementById('photoModalNext');
-
-            const items = Array.from(document.querySelectorAll('.photo-item'));
-            let currentIndex = -1;
-
-            function showModal(index) {
-                if (index < 0 || index >= items.length) return;
-                const item = items[index];
-                modalImg.src = item.getAttribute('data-img');
-                modalCaption.textContent = item.getAttribute('data-caption');
-                modal.classList.add('active');
-                currentIndex = index;
-            }
-
-            items.forEach((item, idx) => {
-                item.addEventListener('click', function () {
-                    showModal(idx);
-                });
-            });
-
-            modalClose.addEventListener('click', function () {
-                modal.classList.remove('active');
-                modalImg.src = '';
-                modalCaption.textContent = '';
-                currentIndex = -1;
-            });
-
-            modalPrev.addEventListener('click', function (e) {
-                e.stopPropagation();
-                if (currentIndex > 0) {
-                    showModal(currentIndex - 1);
-                }
-            });
-
-            modalNext.addEventListener('click', function (e) {
-                e.stopPropagation();
-                if (currentIndex < items.length - 1) {
-                    showModal(currentIndex + 1);
-                }
-            });
-
-            modal.addEventListener('click', function (e) {
-                if (e.target === modal) {
-                    modal.classList.remove('active');
-                    modalImg.src = '';
-                    modalCaption.textContent = '';
-                    currentIndex = -1;
-                }
-            });
-
-            
-            document.addEventListener('keydown', function (e) {
-                if (!modal.classList.contains('active')) return;
-                if (e.key === "ArrowLeft") {
-                    if (currentIndex > 0) showModal(currentIndex - 1);
-                } else if (e.key === "ArrowRight") {
-                    if (currentIndex < items.length - 1) showModal(currentIndex + 1);
-                } else if (e.key === "Escape") {
-                    modal.classList.remove('active');
-                    modalImg.src = '';
-                    modalCaption.textContent = '';
-                    currentIndex = -1;
-                }
-            });
-        });
-    </script>
-</body>
-</html>
+</div></div></section></main>
+<footer class="site-footer"><div class="wrap footer-inner"><p>© <span id="year"></span> VR Famo</p><a href="https://vrfamo.com/discord">Discord</a></div></footer>
+<div class="modal" id="photo-modal" role="dialog" aria-modal="true" aria-labelledby="modal-caption" hidden><div class="modal-dialog"><button class="icon-button close" type="button" aria-label="Close image">×</button><button class="icon-button prev" type="button" aria-label="Previous image">‹</button><button class="icon-button next" type="button" aria-label="Next image">›</button><div class="modal-media"><img id="modal-image" alt=""></div><p class="modal-caption" id="modal-caption"></p></div></div>
+<script>document.getElementById('year').textContent=new Date().getFullYear();const cards=[...document.querySelectorAll('.photo-card')],modal=document.getElementById('photo-modal'),modalImage=document.getElementById('modal-image'),modalCaption=document.getElementById('modal-caption');let current=0,lastFocus=null;function show(index){current=(index+cards.length)%cards.length;const card=cards[current];modalImage.src=card.dataset.img;modalImage.alt=card.querySelector('img').alt;modalCaption.textContent=card.dataset.caption;}function openModal(index){lastFocus=document.activeElement;show(index);modal.hidden=false;requestAnimationFrame(()=>modal.classList.add('open'));document.body.style.overflow='hidden';modal.querySelector('.close').focus();}function closeModal(){modal.classList.remove('open');modal.hidden=true;document.body.style.overflow='';if(lastFocus)lastFocus.focus();}cards.forEach((card,i)=>card.addEventListener('click',()=>openModal(i)));modal.querySelector('.close').addEventListener('click',closeModal);modal.querySelector('.prev').addEventListener('click',()=>show(current-1));modal.querySelector('.next').addEventListener('click',()=>show(current+1));modal.addEventListener('click',e=>{if(e.target===modal)closeModal();});document.addEventListener('keydown',e=>{if(modal.hidden)return;if(e.key==='Escape')closeModal();if(e.key==='ArrowLeft')show(current-1);if(e.key==='ArrowRight')show(current+1);});</script></body></html>

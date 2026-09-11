@@ -1,95 +1,600 @@
-<div class="photo-item" data-img="VRC-Pics/IMG-20250628-WA00022.jpg" data-caption="Provided by Sassy">
-    <img src="VRC-Pics/IMG-20250628-WA00022.jpg" alt="VRChat Photo IMG-20250628-WA00022">
-    <div class="photo-caption">Provided by Sassy</div>
-</div>
 
-<div class="photo-item" data-img="VRC-Pics/VRChat_2025-05-10_21-21-24.555_1920x1080.png" data-caption="Provided by Sassy">
-    <img src="VRC-Pics/VRChat_2025-05-10_21-21-24.555_1920x1080.png" alt="VRChat Photo VRChat_2025-05-10_21-21-24.555_1920x1080">
-    <div class="photo-caption">Provided by Sassy</div>
-</div>
+<button
+    class="photo-card"
+    type="button"
+    data-img="VRC-Pics/VRChat_2026-02-06_20-09-49.344_1280x720daz.png"
+    data-caption="Provided by Daz"
+    aria-label="Open Provided by Daz"
+>
+    <img
+        src="VRC-Pics/VRChat_2026-02-06_20-09-49.344_1280x720daz.png"
+        alt="VRChat community photo - VRChat 2026 02 06 20 09 49.344 1280x720daz"
+        loading="lazy"
+    >
+    <span>Provided by Daz</span>
+</button>
 
-<div class="photo-item" data-img="VRC-Pics/VRChat_2025-05-10_21-22-28.920_1920x1080.png" data-caption="Provided by Sassy">
-    <img src="VRC-Pics/VRChat_2025-05-10_21-22-28.920_1920x1080.png" alt="VRChat Photo VRChat_2025-05-10_21-22-28.920_1920x1080">
-    <div class="photo-caption">Provided by Sassy</div>
-</div>
+<button
+    class="photo-card"
+    type="button"
+    data-img="VRC-Pics/VRChat_2026-02-06_20-10-18.051_1280x720daz.png"
+    data-caption="Provided by Daz"
+    aria-label="Open Provided by Daz"
+>
+    <img
+        src="VRC-Pics/VRChat_2026-02-06_20-10-18.051_1280x720daz.png"
+        alt="VRChat community photo - VRChat 2026 02 06 20 10 18.051 1280x720daz"
+        loading="lazy"
+    >
+    <span>Provided by Daz</span>
+</button>
 
-<div class="photo-item" data-img="VRC-Pics/VRChat_2025-05-10_21-24-16.463_1920x1080_101556.png" data-caption="Provided by Sassy">
-    <img src="VRC-Pics/VRChat_2025-05-10_21-24-16.463_1920x1080_101556.png" alt="VRChat Photo VRChat_2025-05-10_21-24-16.463_1920x1080_101556">
-    <div class="photo-caption">Provided by Sassy</div>
-</div>
+<button
+    class="photo-card"
+    type="button"
+    data-img="VRC-Pics/VRChat_2026-02-06_20-11-12.716_1280x720daz.png"
+    data-caption="Provided by Daz"
+    aria-label="Open Provided by Daz"
+>
+    <img
+        src="VRC-Pics/VRChat_2026-02-06_20-11-12.716_1280x720daz.png"
+        alt="VRChat community photo - VRChat 2026 02 06 20 11 12.716 1280x720daz"
+        loading="lazy"
+    >
+    <span>Provided by Daz</span>
+</button>
 
-<div class="photo-item" data-img="VRC-Pics/VRChat_2025-05-10_21-34-29.292_1920x1080_101909.png" data-caption="Provided by Sassy">
-    <img src="VRC-Pics/VRChat_2025-05-10_21-34-29.292_1920x1080_101909.png" alt="VRChat Photo VRChat_2025-05-10_21-34-29.292_1920x1080_101909">
-    <div class="photo-caption">Provided by Sassy</div>
-</div>
+<button
+    class="photo-card"
+    type="button"
+    data-img="VRC-Pics/VRChat_2026-02-07_19-17-06.351_1080x1920.png"
+    data-caption="Provided by Mocha"
+    aria-label="Open Provided by Mocha"
+>
+    <img
+        src="VRC-Pics/VRChat_2026-02-07_19-17-06.351_1080x1920.png"
+        alt="VRChat community photo - VRChat 2026 02 07 19 17 06.351 1080x1920"
+        loading="lazy"
+    >
+    <span>Provided by Mocha</span>
+</button>
 
-<div class="photo-item" data-img="VRC-Pics/VRChat_2025-05-10_21-35-12.490_1920x1080.png" data-caption="Provided by Sassy">
-    <img src="VRC-Pics/VRChat_2025-05-10_21-35-12.490_1920x1080.png" alt="VRChat Photo VRChat_2025-05-10_21-35-12.490_1920x1080">
-    <div class="photo-caption">Provided by Sassy</div>
-</div>
+<button
+    class="photo-card"
+    type="button"
+    data-img="VRC-Pics/VRChat_2026-03-09_23-17-09.904_1920x1080.png"
+    data-caption="Provided by Mocha"
+    aria-label="Open Provided by Mocha"
+>
+    <img
+        src="VRC-Pics/VRChat_2026-03-09_23-17-09.904_1920x1080.png"
+        alt="VRChat community photo - VRChat 2026 03 09 23 17 09.904 1920x1080"
+        loading="lazy"
+    >
+    <span>Provided by Mocha</span>
+</button>
 
-<div class="photo-item" data-img="VRC-Pics/VRChat_2025-05-10_21-44-22.853_1920x1080_102223.png" data-caption="Provided by Sassy">
-    <img src="VRC-Pics/VRChat_2025-05-10_21-44-22.853_1920x1080_102223.png" alt="VRChat Photo VRChat_2025-05-10_21-44-22.853_1920x1080_102223">
-    <div class="photo-caption">Provided by Sassy</div>
-</div>
+<button
+    class="photo-card"
+    type="button"
+    data-img="VRC-Pics/VRChat_2026-03-16_22-49-33.024_1080x1920.png"
+    data-caption="Provided by Mocha"
+    aria-label="Open Provided by Mocha"
+>
+    <img
+        src="VRC-Pics/VRChat_2026-03-16_22-49-33.024_1080x1920.png"
+        alt="VRChat community photo - VRChat 2026 03 16 22 49 33.024 1080x1920"
+        loading="lazy"
+    >
+    <span>Provided by Mocha</span>
+</button>
 
-<div class="photo-item" data-img="VRC-Pics/VRChat_2025-05-12_18-55-42.012_1920x1080_123759.png" data-caption="Provided by Sassy">
-    <img src="VRC-Pics/VRChat_2025-05-12_18-55-42.012_1920x1080_123759.png" alt="VRChat Photo VRChat_2025-05-12_18-55-42.012_1920x1080_123759">
-    <div class="photo-caption">Provided by Sassy</div>
-</div>
+<button
+    class="photo-card"
+    type="button"
+    data-img="VRC-Pics/VRChat_2026-03-16_22-51-50.860_1080x1920.png"
+    data-caption="Provided by Mocha"
+    aria-label="Open Provided by Mocha"
+>
+    <img
+        src="VRC-Pics/VRChat_2026-03-16_22-51-50.860_1080x1920.png"
+        alt="VRChat community photo - VRChat 2026 03 16 22 51 50.860 1080x1920"
+        loading="lazy"
+    >
+    <span>Provided by Mocha</span>
+</button>
 
-<div class="photo-item" data-img="VRC-Pics/VRChat_2025-05-18_21-25-54.833_1920x1080.png" data-caption="Provided by Sassy">
-    <img src="VRC-Pics/VRChat_2025-05-18_21-25-54.833_1920x1080.png" alt="VRChat Photo VRChat_2025-05-18_21-25-54.833_1920x1080">
-    <div class="photo-caption">Provided by Sassy</div>
-</div>
+<button
+    class="photo-card"
+    type="button"
+    data-img="VRC-Pics/VRChat_2026-04-17_19-16-17.365_1920x1080.png"
+    data-caption="Provided by Mocha"
+    aria-label="Open Provided by Mocha"
+>
+    <img
+        src="VRC-Pics/VRChat_2026-04-17_19-16-17.365_1920x1080.png"
+        alt="VRChat community photo - VRChat 2026 04 17 19 16 17.365 1920x1080"
+        loading="lazy"
+    >
+    <span>Provided by Mocha</span>
+</button>
 
-<div class="photo-item" data-img="VRC-Pics/VRChat_2025-05-20_18-15-25.497_1920x1080.png" data-caption="Provided by Sassy">
-    <img src="VRC-Pics/VRChat_2025-05-20_18-15-25.497_1920x1080.png" alt="VRChat Photo VRChat_2025-05-20_18-15-25.497_1920x1080">
-    <div class="photo-caption">Provided by Sassy</div>
-</div>
+<button
+    class="photo-card"
+    type="button"
+    data-img="VRC-Pics/VRChat_2026-04-17_19-18-05.037_1920x1080.png"
+    data-caption="Provided by Mocha"
+    aria-label="Open Provided by Mocha"
+>
+    <img
+        src="VRC-Pics/VRChat_2026-04-17_19-18-05.037_1920x1080.png"
+        alt="VRChat community photo - VRChat 2026 04 17 19 18 05.037 1920x1080"
+        loading="lazy"
+    >
+    <span>Provided by Mocha</span>
+</button>
 
-<div class="photo-item" data-img="VRC-Pics/VRChat_2025-06-26_21-04-22.494_1920x1080.png" data-caption="Provided by Sassy">
-    <img src="VRC-Pics/VRChat_2025-06-26_21-04-22.494_1920x1080.png" alt="VRChat Photo VRChat_2025-06-26_21-04-22.494_1920x1080">
-    <div class="photo-caption">Provided by Sassy</div>
-</div>
+<button
+    class="photo-card"
+    type="button"
+    data-img="VRC-Pics/VRChat_2026-04-17_19-43-43.282_1920x1080.png"
+    data-caption="Provided by Mocha"
+    aria-label="Open Provided by Mocha"
+>
+    <img
+        src="VRC-Pics/VRChat_2026-04-17_19-43-43.282_1920x1080.png"
+        alt="VRChat community photo - VRChat 2026 04 17 19 43 43.282 1920x1080"
+        loading="lazy"
+    >
+    <span>Provided by Mocha</span>
+</button>
 
-<div class="photo-item" data-img="VRC-Pics/VRChat_2025-06-28_18-29-30.805_1920x1080.png" data-caption="Provided by Sassy">
-    <img src="VRC-Pics/VRChat_2025-06-28_18-29-30.805_1920x1080.png" alt="VRChat Photo VRChat_2025-06-28_18-29-30.805_1920x1080">
-    <div class="photo-caption">Provided by Sassy</div>
-</div>
+<button
+    class="photo-card"
+    type="button"
+    data-img="VRC-Pics/VRChat_2026-04-17_20-08-10.041_1920x1080.png"
+    data-caption="Provided by Mocha"
+    aria-label="Open Provided by Mocha"
+>
+    <img
+        src="VRC-Pics/VRChat_2026-04-17_20-08-10.041_1920x1080.png"
+        alt="VRChat community photo - VRChat 2026 04 17 20 08 10.041 1920x1080"
+        loading="lazy"
+    >
+    <span>Provided by Mocha</span>
+</button>
 
-<div class="photo-item" data-img="VRC-Pics/VRChat_2025-06-29_20-03-57.095_1920x1080.png" data-caption="Provided by Sassy">
-    <img src="VRC-Pics/VRChat_2025-06-29_20-03-57.095_1920x1080.png" alt="VRChat Photo VRChat_2025-06-29_20-03-57.095_1920x1080">
-    <div class="photo-caption">Provided by Sassy</div>
-</div>
+<button
+    class="photo-card"
+    type="button"
+    data-img="VRC-Pics/VRChat_2026-04-17_20-11-31.801_1920x1080.png"
+    data-caption="Provided by Mocha"
+    aria-label="Open Provided by Mocha"
+>
+    <img
+        src="VRC-Pics/VRChat_2026-04-17_20-11-31.801_1920x1080.png"
+        alt="VRChat community photo - VRChat 2026 04 17 20 11 31.801 1920x1080"
+        loading="lazy"
+    >
+    <span>Provided by Mocha</span>
+</button>
 
-<div class="photo-item" data-img="VRC-Pics/VRChat_2025-06-30_21-00-32.470_1920x1080.png" data-caption="Provided by Sassy">
-    <img src="VRC-Pics/VRChat_2025-06-30_21-00-32.470_1920x1080.png" alt="VRChat Photo VRChat_2025-06-30_21-00-32.470_1920x1080">
-    <div class="photo-caption">Provided by Sassy</div>
-</div>
+<button
+    class="photo-card"
+    type="button"
+    data-img="VRC-Pics/VRChat_2026-04-17_20-29-06.518_1920x1080.png"
+    data-caption="Provided by Mocha"
+    aria-label="Open Provided by Mocha"
+>
+    <img
+        src="VRC-Pics/VRChat_2026-04-17_20-29-06.518_1920x1080.png"
+        alt="VRChat community photo - VRChat 2026 04 17 20 29 06.518 1920x1080"
+        loading="lazy"
+    >
+    <span>Provided by Mocha</span>
+</button>
 
-<div class="photo-item" data-img="VRC-Pics/VRChat_2025-07-03_19-43-15.895_1080x1920.png" data-caption="Provided by Sassy">
-    <img src="VRC-Pics/VRChat_2025-07-03_19-43-15.895_1080x1920.png" alt="VRChat Photo VRChat_2025-07-03_19-43-15.895_1080x1920">
-    <div class="photo-caption">Provided by Sassy</div>
-</div>
+<button
+    class="photo-card"
+    type="button"
+    data-img="VRC-Pics/VRChat_2026-04-17_20-30-33.994_1920x1080.png"
+    data-caption="Provided by Mocha"
+    aria-label="Open Provided by Mocha"
+>
+    <img
+        src="VRC-Pics/VRChat_2026-04-17_20-30-33.994_1920x1080.png"
+        alt="VRChat community photo - VRChat 2026 04 17 20 30 33.994 1920x1080"
+        loading="lazy"
+    >
+    <span>Provided by Mocha</span>
+</button>
 
-<div class="photo-item" data-img="VRC-Pics/VRChat_2025-07-05_12-17-11.284_1920x1080.png" data-caption="Provided by Sassy">
-    <img src="VRC-Pics/VRChat_2025-07-05_12-17-11.284_1920x1080.png" alt="VRChat Photo VRChat_2025-07-05_12-17-11.284_1920x1080">
-    <div class="photo-caption">Provided by Sassy</div>
-</div>
+<button
+    class="photo-card"
+    type="button"
+    data-img="VRC-Pics/VRChat_2026-04-17_20-34-06.155_1920x1080.png"
+    data-caption="Provided by Mocha"
+    aria-label="Open Provided by Mocha"
+>
+    <img
+        src="VRC-Pics/VRChat_2026-04-17_20-34-06.155_1920x1080.png"
+        alt="VRChat community photo - VRChat 2026 04 17 20 34 06.155 1920x1080"
+        loading="lazy"
+    >
+    <span>Provided by Mocha</span>
+</button>
 
-<div class="photo-item" data-img="VRC-Pics/VRChat_2025-07-05_13-33-33.452_1080x1920.png" data-caption="Provided by Sassy">
-    <img src="VRC-Pics/VRChat_2025-07-05_13-33-33.452_1080x1920.png" alt="VRChat Photo VRChat_2025-07-05_13-33-33.452_1080x1920">
-    <div class="photo-caption">Provided by Sassy</div>
-</div>
+<button
+    class="photo-card"
+    type="button"
+    data-img="VRC-Pics/VRChat_2026-04-17_20-37-31.941_3840x2160.png"
+    data-caption="Provided by Mocha"
+    aria-label="Open Provided by Mocha"
+>
+    <img
+        src="VRC-Pics/VRChat_2026-04-17_20-37-31.941_3840x2160.png"
+        alt="VRChat community photo - VRChat 2026 04 17 20 37 31.941 3840x2160"
+        loading="lazy"
+    >
+    <span>Provided by Mocha</span>
+</button>
 
-<div class="photo-item" data-img="VRC-Pics/VRChat_2025-07-13_18-38-44.218_1920x1080.png" data-caption="Provided by Sassy">
-    <img src="VRC-Pics/VRChat_2025-07-13_18-38-44.218_1920x1080.png" alt="VRChat Photo VRChat_2025-07-13_18-38-44.218_1920x1080">
-    <div class="photo-caption">Provided by Sassy</div>
-</div>
+<button
+    class="photo-card"
+    type="button"
+    data-img="VRC-Pics/VRChat_2026-04-17_20-43-53.812_3840x2160.png"
+    data-caption="Provided by Mocha"
+    aria-label="Open Provided by Mocha"
+>
+    <img
+        src="VRC-Pics/VRChat_2026-04-17_20-43-53.812_3840x2160.png"
+        alt="VRChat community photo - VRChat 2026 04 17 20 43 53.812 3840x2160"
+        loading="lazy"
+    >
+    <span>Provided by Mocha</span>
+</button>
 
-<div class="photo-item" data-img="VRC-Pics/VRChat_2025-07-13_18-38-54.299_1920x1080.png" data-caption="Provided by Sassy">
-    <img src="VRC-Pics/VRChat_2025-07-13_18-38-54.299_1920x1080.png" alt="VRChat Photo VRChat_2025-07-13_18-38-54.299_1920x1080">
-    <div class="photo-caption">Provided by Sassy</div>
-</div>
+<button
+    class="photo-card"
+    type="button"
+    data-img="VRC-Pics/VRChat_2026-04-17_20-46-29.314_3840x2160.png"
+    data-caption="Provided by Mocha"
+    aria-label="Open Provided by Mocha"
+>
+    <img
+        src="VRC-Pics/VRChat_2026-04-17_20-46-29.314_3840x2160.png"
+        alt="VRChat community photo - VRChat 2026 04 17 20 46 29.314 3840x2160"
+        loading="lazy"
+    >
+    <span>Provided by Mocha</span>
+</button>
 
+<button
+    class="photo-card"
+    type="button"
+    data-img="VRC-Pics/VRChat_2026-04-17_20-47-23.916_3840x2160.png"
+    data-caption="Provided by Mocha"
+    aria-label="Open Provided by Mocha"
+>
+    <img
+        src="VRC-Pics/VRChat_2026-04-17_20-47-23.916_3840x2160.png"
+        alt="VRChat community photo - VRChat 2026 04 17 20 47 23.916 3840x2160"
+        loading="lazy"
+    >
+    <span>Provided by Mocha</span>
+</button>
+
+<button
+    class="photo-card"
+    type="button"
+    data-img="VRC-Pics/VRChat_2026-06-13_19-41-24.909_7680x4320.png"
+    data-caption="Provided by Mocha"
+    aria-label="Open Provided by Mocha"
+>
+    <img
+        src="VRC-Pics/VRChat_2026-06-13_19-41-24.909_7680x4320.png"
+        alt="VRChat community photo - VRChat 2026 06 13 19 41 24.909 7680x4320"
+        loading="lazy"
+    >
+    <span>Provided by Mocha</span>
+</button>
+
+<button
+    class="photo-card"
+    type="button"
+    data-img="VRC-Pics/VRChat_2026-06-13_19-50-14.174_7680x4320.png"
+    data-caption="Provided by Mocha"
+    aria-label="Open Provided by Mocha"
+>
+    <img
+        src="VRC-Pics/VRChat_2026-06-13_19-50-14.174_7680x4320.png"
+        alt="VRChat community photo - VRChat 2026 06 13 19 50 14.174 7680x4320"
+        loading="lazy"
+    >
+    <span>Provided by Mocha</span>
+</button>
+
+<button
+    class="photo-card"
+    type="button"
+    data-img="VRC-Pics/VRChat_2026-06-13_20-00-19.069_7680x4320.png"
+    data-caption="Provided by Mocha"
+    aria-label="Open Provided by Mocha"
+>
+    <img
+        src="VRC-Pics/VRChat_2026-06-13_20-00-19.069_7680x4320.png"
+        alt="VRChat community photo - VRChat 2026 06 13 20 00 19.069 7680x4320"
+        loading="lazy"
+    >
+    <span>Provided by Mocha</span>
+</button>
+
+<button
+    class="photo-card"
+    type="button"
+    data-img="VRC-Pics/VRChat_2026-06-13_20-05-30.929_7680x4320.png"
+    data-caption="Provided by Mocha"
+    aria-label="Open Provided by Mocha"
+>
+    <img
+        src="VRC-Pics/VRChat_2026-06-13_20-05-30.929_7680x4320.png"
+        alt="VRChat community photo - VRChat 2026 06 13 20 05 30.929 7680x4320"
+        loading="lazy"
+    >
+    <span>Provided by Mocha</span>
+</button>
+
+<button
+    class="photo-card"
+    type="button"
+    data-img="VRC-Pics/VRChat_2026-06-13_20-08-28.602_7680x4320.png"
+    data-caption="Provided by Mocha"
+    aria-label="Open Provided by Mocha"
+>
+    <img
+        src="VRC-Pics/VRChat_2026-06-13_20-08-28.602_7680x4320.png"
+        alt="VRChat community photo - VRChat 2026 06 13 20 08 28.602 7680x4320"
+        loading="lazy"
+    >
+    <span>Provided by Mocha</span>
+</button>
+
+<button
+    class="photo-card"
+    type="button"
+    data-img="VRC-Pics/VRChat_2026-06-13_20-09-30.692_7680x4320.png"
+    data-caption="Provided by Mocha"
+    aria-label="Open Provided by Mocha"
+>
+    <img
+        src="VRC-Pics/VRChat_2026-06-13_20-09-30.692_7680x4320.png"
+        alt="VRChat community photo - VRChat 2026 06 13 20 09 30.692 7680x4320"
+        loading="lazy"
+    >
+    <span>Provided by Mocha</span>
+</button>
+
+<button
+    class="photo-card"
+    type="button"
+    data-img="VRC-Pics/VRChat_2026-06-13_20-18-53.406_7680x4320.png"
+    data-caption="Provided by Mocha"
+    aria-label="Open Provided by Mocha"
+>
+    <img
+        src="VRC-Pics/VRChat_2026-06-13_20-18-53.406_7680x4320.png"
+        alt="VRChat community photo - VRChat 2026 06 13 20 18 53.406 7680x4320"
+        loading="lazy"
+    >
+    <span>Provided by Mocha</span>
+</button>
+
+<button
+    class="photo-card"
+    type="button"
+    data-img="VRC-Pics/VRChat_2026-06-13_20-23-46.404_7680x4320.png"
+    data-caption="Provided by Mocha"
+    aria-label="Open Provided by Mocha"
+>
+    <img
+        src="VRC-Pics/VRChat_2026-06-13_20-23-46.404_7680x4320.png"
+        alt="VRChat community photo - VRChat 2026 06 13 20 23 46.404 7680x4320"
+        loading="lazy"
+    >
+    <span>Provided by Mocha</span>
+</button>
+
+<button
+    class="photo-card"
+    type="button"
+    data-img="VRC-Pics/VRChat_2026-06-13_20-26-10.391_7680x4320.png"
+    data-caption="Provided by Mocha"
+    aria-label="Open Provided by Mocha"
+>
+    <img
+        src="VRC-Pics/VRChat_2026-06-13_20-26-10.391_7680x4320.png"
+        alt="VRChat community photo - VRChat 2026 06 13 20 26 10.391 7680x4320"
+        loading="lazy"
+    >
+    <span>Provided by Mocha</span>
+</button>
+
+<button
+    class="photo-card"
+    type="button"
+    data-img="VRC-Pics/VRChat_2026-06-13_20-28-54.119_7680x4320.png"
+    data-caption="Provided by Mocha"
+    aria-label="Open Provided by Mocha"
+>
+    <img
+        src="VRC-Pics/VRChat_2026-06-13_20-28-54.119_7680x4320.png"
+        alt="VRChat community photo - VRChat 2026 06 13 20 28 54.119 7680x4320"
+        loading="lazy"
+    >
+    <span>Provided by Mocha</span>
+</button>
+
+<button
+    class="photo-card"
+    type="button"
+    data-img="VRC-Pics/VRChat_2026-06-13_20-31-44.403_7680x4320.png"
+    data-caption="Provided by Mocha"
+    aria-label="Open Provided by Mocha"
+>
+    <img
+        src="VRC-Pics/VRChat_2026-06-13_20-31-44.403_7680x4320.png"
+        alt="VRChat community photo - VRChat 2026 06 13 20 31 44.403 7680x4320"
+        loading="lazy"
+    >
+    <span>Provided by Mocha</span>
+</button>
+
+<button
+    class="photo-card"
+    type="button"
+    data-img="VRC-Pics/VRChat_2026-06-13_20-40-02.383_7680x4320.png"
+    data-caption="Provided by Mocha"
+    aria-label="Open Provided by Mocha"
+>
+    <img
+        src="VRC-Pics/VRChat_2026-06-13_20-40-02.383_7680x4320.png"
+        alt="VRChat community photo - VRChat 2026 06 13 20 40 02.383 7680x4320"
+        loading="lazy"
+    >
+    <span>Provided by Mocha</span>
+</button>
+
+<button
+    class="photo-card"
+    type="button"
+    data-img="VRC-Pics/VRChat_2026-06-13_21-01-57.165_7680x4320.png"
+    data-caption="Provided by Mocha"
+    aria-label="Open Provided by Mocha"
+>
+    <img
+        src="VRC-Pics/VRChat_2026-06-13_21-01-57.165_7680x4320.png"
+        alt="VRChat community photo - VRChat 2026 06 13 21 01 57.165 7680x4320"
+        loading="lazy"
+    >
+    <span>Provided by Mocha</span>
+</button>
+
+<button
+    class="photo-card"
+    type="button"
+    data-img="VRC-Pics/VRChat_2026-07-25_19-32-34.753_7680x4320.png"
+    data-caption="Provided by Mocha"
+    aria-label="Open Provided by Mocha"
+>
+    <img
+        src="VRC-Pics/VRChat_2026-07-25_19-32-34.753_7680x4320.png"
+        alt="VRChat community photo - VRChat 2026 07 25 19 32 34.753 7680x4320"
+        loading="lazy"
+    >
+    <span>Provided by Mocha</span>
+</button>
+
+<button
+    class="photo-card"
+    type="button"
+    data-img="VRC-Pics/VRChat_2026-07-25_19-39-49.303_7680x4320.png"
+    data-caption="Provided by Mocha"
+    aria-label="Open Provided by Mocha"
+>
+    <img
+        src="VRC-Pics/VRChat_2026-07-25_19-39-49.303_7680x4320.png"
+        alt="VRChat community photo - VRChat 2026 07 25 19 39 49.303 7680x4320"
+        loading="lazy"
+    >
+    <span>Provided by Mocha</span>
+</button>
+
+<button
+    class="photo-card"
+    type="button"
+    data-img="VRC-Pics/VRChat_2026-07-25_20-35-02.022_7680x4320.png"
+    data-caption="Provided by Mocha"
+    aria-label="Open Provided by Mocha"
+>
+    <img
+        src="VRC-Pics/VRChat_2026-07-25_20-35-02.022_7680x4320.png"
+        alt="VRChat community photo - VRChat 2026 07 25 20 35 02.022 7680x4320"
+        loading="lazy"
+    >
+    <span>Provided by Mocha</span>
+</button>
+
+<button
+    class="photo-card"
+    type="button"
+    data-img="VRC-Pics/VRChat_2026-07-25_20-45-47.575_7680x4320.png"
+    data-caption="Provided by Mocha"
+    aria-label="Open Provided by Mocha"
+>
+    <img
+        src="VRC-Pics/VRChat_2026-07-25_20-45-47.575_7680x4320.png"
+        alt="VRChat community photo - VRChat 2026 07 25 20 45 47.575 7680x4320"
+        loading="lazy"
+    >
+    <span>Provided by Mocha</span>
+</button>
+
+<button
+    class="photo-card"
+    type="button"
+    data-img="VRC-Pics/VRChat_2026-07-25_20-47-03.347_7680x4320.png"
+    data-caption="Provided by Mocha"
+    aria-label="Open Provided by Mocha"
+>
+    <img
+        src="VRC-Pics/VRChat_2026-07-25_20-47-03.347_7680x4320.png"
+        alt="VRChat community photo - VRChat 2026 07 25 20 47 03.347 7680x4320"
+        loading="lazy"
+    >
+    <span>Provided by Mocha</span>
+</button>
+
+<button
+    class="photo-card"
+    type="button"
+    data-img="VRC-Pics/VRChat_2026-07-25_20-47-42.079_7680x4320.png"
+    data-caption="Provided by Mocha"
+    aria-label="Open Provided by Mocha"
+>
+    <img
+        src="VRC-Pics/VRChat_2026-07-25_20-47-42.079_7680x4320.png"
+        alt="VRChat community photo - VRChat 2026 07 25 20 47 42.079 7680x4320"
+        loading="lazy"
+    >
+    <span>Provided by Mocha</span>
+</button>
+
+<button
+    class="photo-card"
+    type="button"
+    data-img="VRC-Pics/VRChat_2026-07-25_20-48-52.732_7680x4320.png"
+    data-caption="Provided by Mocha"
+    aria-label="Open Provided by Mocha"
+>
+    <img
+        src="VRC-Pics/VRChat_2026-07-25_20-48-52.732_7680x4320.png"
+        alt="VRChat community photo - VRChat 2026 07 25 20 48 52.732 7680x4320"
+        loading="lazy"
+    >
+    <span>Provided by Mocha</span>
+</button>
+
+<button
+    class="photo-card"
+    type="button"
+    data-img="VRC-Pics/VRChat_2026-07-25_20-52-34.636_7680x4320.png"
+    data-caption="Provided by Mocha"
+    aria-label="Open Provided by Mocha"
+>
+    <img
+        src="VRC-Pics/VRChat_2026-07-25_20-52-34.636_7680x4320.png"
+        alt="VRChat community photo - VRChat 2026 07 25 20 52 34.636 7680x4320"
+        loading="lazy"
+    >
+    <span>Provided by Mocha</span>
+</button>
